@@ -1,0 +1,288 @@
+#pragma once
+//#include "Form1.h"
+
+namespace projectTest {
+
+	using namespace System;
+	using namespace System::IO;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+
+	/// <summary>
+	/// Сводка для Form2
+	/// </summary>
+	public ref class Form2 : public System::Windows::Forms::Form
+	{
+	public:
+		Form2(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: добавьте код конструктора
+			//
+		}
+	private: System::Windows::Forms::TextBox^ poleVoprosa;
+	public:
+
+	private: System::Windows::Forms::TextBox^ otvBox1;
+	private: System::Windows::Forms::TextBox^ otvBox2;
+	private: System::Windows::Forms::TextBox^ otvBox3;
+	private: System::Windows::Forms::TextBox^ otvBox4;
+	private: System::Windows::Forms::RadioButton^ RDBotvBox1;
+	private: System::Windows::Forms::RadioButton^ RDBotvBox2;
+	private: System::Windows::Forms::RadioButton^ RDBotvBox3;
+	private: System::Windows::Forms::RadioButton^ RDBotvBox4;
+	private: System::Windows::Forms::Button^ nextTestBTM;
+	private: System::Windows::Forms::Button^ finishTestBTM;
+	private: System::Windows::Forms::Button^ backTestBTM;
+
+	public:
+	public:
+	public:
+		String^ path;
+
+	protected:
+		/// <summary>
+		/// Освободить все используемые ресурсы.
+		/// </summary>
+		~Form2()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+
+	private:
+		/// <summary>
+		/// Обязательная переменная конструктора.
+		/// </summary>
+		System::ComponentModel::Container ^components;
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Требуемый метод для поддержки конструктора — не изменяйте 
+		/// содержимое этого метода с помощью редактора кода.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->poleVoprosa = (gcnew System::Windows::Forms::TextBox());
+			this->otvBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->otvBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->otvBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->otvBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->RDBotvBox1 = (gcnew System::Windows::Forms::RadioButton());
+			this->RDBotvBox2 = (gcnew System::Windows::Forms::RadioButton());
+			this->RDBotvBox3 = (gcnew System::Windows::Forms::RadioButton());
+			this->RDBotvBox4 = (gcnew System::Windows::Forms::RadioButton());
+			this->nextTestBTM = (gcnew System::Windows::Forms::Button());
+			this->finishTestBTM = (gcnew System::Windows::Forms::Button());
+			this->backTestBTM = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// poleVoprosa
+			// 
+			this->poleVoprosa->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->poleVoprosa->ForeColor = System::Drawing::SystemColors::WindowFrame;
+			this->poleVoprosa->Location = System::Drawing::Point(13, 13);
+			this->poleVoprosa->Multiline = true;
+			this->poleVoprosa->Name = L"poleVoprosa";
+			this->poleVoprosa->Size = System::Drawing::Size(287, 73);
+			this->poleVoprosa->TabIndex = 0;
+			this->poleVoprosa->TextChanged += gcnew System::EventHandler(this, &Form2::poleVoprosa_TextChanged);
+			// 
+			// otvBox1
+			// 
+			this->otvBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->otvBox1->Location = System::Drawing::Point(33, 97);
+			this->otvBox1->Multiline = true;
+			this->otvBox1->Name = L"otvBox1";
+			this->otvBox1->Size = System::Drawing::Size(267, 42);
+			this->otvBox1->TabIndex = 1;
+			this->otvBox1->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox1_TextChanged);
+			// 
+			// otvBox2
+			// 
+			this->otvBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->otvBox2->Location = System::Drawing::Point(33, 147);
+			this->otvBox2->Multiline = true;
+			this->otvBox2->Name = L"otvBox2";
+			this->otvBox2->Size = System::Drawing::Size(267, 42);
+			this->otvBox2->TabIndex = 2;
+			this->otvBox2->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox2_TextChanged);
+			// 
+			// otvBox3
+			// 
+			this->otvBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->otvBox3->Location = System::Drawing::Point(33, 198);
+			this->otvBox3->Multiline = true;
+			this->otvBox3->Name = L"otvBox3";
+			this->otvBox3->Size = System::Drawing::Size(267, 42);
+			this->otvBox3->TabIndex = 3;
+			this->otvBox3->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox3_TextChanged);
+			// 
+			// otvBox4
+			// 
+			this->otvBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->otvBox4->Location = System::Drawing::Point(33, 251);
+			this->otvBox4->Multiline = true;
+			this->otvBox4->Name = L"otvBox4";
+			this->otvBox4->Size = System::Drawing::Size(267, 42);
+			this->otvBox4->TabIndex = 4;
+			this->otvBox4->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox4_TextChanged);
+			// 
+			// RDBotvBox1
+			// 
+			this->RDBotvBox1->AutoSize = true;
+			this->RDBotvBox1->Location = System::Drawing::Point(13, 111);
+			this->RDBotvBox1->Name = L"RDBotvBox1";
+			this->RDBotvBox1->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox1->TabIndex = 5;
+			this->RDBotvBox1->TabStop = true;
+			this->RDBotvBox1->UseVisualStyleBackColor = true;
+			this->RDBotvBox1->CheckedChanged += gcnew System::EventHandler(this, &Form2::RDBotvBox1_CheckedChanged);
+			// 
+			// RDBotvBox2
+			// 
+			this->RDBotvBox2->AutoSize = true;
+			this->RDBotvBox2->Location = System::Drawing::Point(13, 163);
+			this->RDBotvBox2->Name = L"RDBotvBox2";
+			this->RDBotvBox2->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox2->TabIndex = 6;
+			this->RDBotvBox2->TabStop = true;
+			this->RDBotvBox2->UseVisualStyleBackColor = true;
+			this->RDBotvBox2->CheckedChanged += gcnew System::EventHandler(this, &Form2::RDBotvBox2_CheckedChanged);
+			// 
+			// RDBotvBox3
+			// 
+			this->RDBotvBox3->AutoSize = true;
+			this->RDBotvBox3->Location = System::Drawing::Point(13, 213);
+			this->RDBotvBox3->Name = L"RDBotvBox3";
+			this->RDBotvBox3->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox3->TabIndex = 7;
+			this->RDBotvBox3->TabStop = true;
+			this->RDBotvBox3->UseVisualStyleBackColor = true;
+			this->RDBotvBox3->CheckedChanged += gcnew System::EventHandler(this, &Form2::RDBotvBox3_CheckedChanged);
+			// 
+			// RDBotvBox4
+			// 
+			this->RDBotvBox4->AutoSize = true;
+			this->RDBotvBox4->Location = System::Drawing::Point(13, 265);
+			this->RDBotvBox4->Name = L"RDBotvBox4";
+			this->RDBotvBox4->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox4->TabIndex = 8;
+			this->RDBotvBox4->TabStop = true;
+			this->RDBotvBox4->UseVisualStyleBackColor = true;
+			this->RDBotvBox4->CheckedChanged += gcnew System::EventHandler(this, &Form2::RDBotvBox4_CheckedChanged);
+			// 
+			// nextTestBTM
+			// 
+			this->nextTestBTM->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->nextTestBTM->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->nextTestBTM->Location = System::Drawing::Point(224, 309);
+			this->nextTestBTM->Name = L"nextTestBTM";
+			this->nextTestBTM->Size = System::Drawing::Size(75, 31);
+			this->nextTestBTM->TabIndex = 9;
+			this->nextTestBTM->Text = L"Далее ->";
+			this->nextTestBTM->UseVisualStyleBackColor = false;
+			this->nextTestBTM->Click += gcnew System::EventHandler(this, &Form2::nextTestBTM_Click);
+			// 
+			// finishTestBTM
+			// 
+			this->finishTestBTM->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->finishTestBTM->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->finishTestBTM->Location = System::Drawing::Point(93, 309);
+			this->finishTestBTM->Name = L"finishTestBTM";
+			this->finishTestBTM->Size = System::Drawing::Size(125, 31);
+			this->finishTestBTM->TabIndex = 10;
+			this->finishTestBTM->Text = L"Завершить";
+			this->finishTestBTM->UseVisualStyleBackColor = false;
+			this->finishTestBTM->Click += gcnew System::EventHandler(this, &Form2::finishTestBTM_Click);
+			// 
+			// backTestBTM
+			// 
+			this->backTestBTM->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->backTestBTM->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->backTestBTM->Location = System::Drawing::Point(12, 309);
+			this->backTestBTM->Name = L"backTestBTM";
+			this->backTestBTM->Size = System::Drawing::Size(75, 31);
+			this->backTestBTM->TabIndex = 11;
+			this->backTestBTM->Text = L"<- Назад";
+			this->backTestBTM->UseVisualStyleBackColor = false;
+			this->backTestBTM->Click += gcnew System::EventHandler(this, &Form2::backTestBTM_Click);
+			// 
+			// Form2
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Thistle;
+			this->ClientSize = System::Drawing::Size(312, 344);
+			this->Controls->Add(this->backTestBTM);
+			this->Controls->Add(this->finishTestBTM);
+			this->Controls->Add(this->nextTestBTM);
+			this->Controls->Add(this->RDBotvBox4);
+			this->Controls->Add(this->RDBotvBox3);
+			this->Controls->Add(this->RDBotvBox2);
+			this->Controls->Add(this->RDBotvBox1);
+			this->Controls->Add(this->otvBox4);
+			this->Controls->Add(this->otvBox3);
+			this->Controls->Add(this->otvBox2);
+			this->Controls->Add(this->otvBox1);
+			this->Controls->Add(this->poleVoprosa);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->Name = L"Form2";
+			this->Text = L"Тест №";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
+		}
+#pragma endregion
+	private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+		StreamWriter^ fileTxt = gcnew StreamWriter(path);
+		fileTxt->Write(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
+		fileTxt->Close();
+		MessageBox::Show(this, "Вопрос сохранен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		poleVoprosa->Text = "";
+
+		Form2^ formN = gcnew Form2();
+		formN->Show();
+		this->Close();
+	}
+private: System::Void poleVoprosa_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void otvBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void otvBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void otvBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void otvBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void RDBotvBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void RDBotvBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void RDBotvBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void RDBotvBox4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void backTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
+}
