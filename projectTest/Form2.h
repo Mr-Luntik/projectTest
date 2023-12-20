@@ -1,5 +1,6 @@
 #pragma once
 //#include "Form1.h"
+//Коммиты не хотят работать
 
 namespace projectTest {
 
