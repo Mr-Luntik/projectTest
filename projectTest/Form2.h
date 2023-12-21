@@ -89,10 +89,11 @@ namespace projectTest {
 			this->poleVoprosa->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->poleVoprosa->ForeColor = System::Drawing::SystemColors::WindowFrame;
-			this->poleVoprosa->Location = System::Drawing::Point(13, 13);
+			this->poleVoprosa->Location = System::Drawing::Point(17, 16);
+			this->poleVoprosa->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->poleVoprosa->Multiline = true;
 			this->poleVoprosa->Name = L"poleVoprosa";
-			this->poleVoprosa->Size = System::Drawing::Size(287, 73);
+			this->poleVoprosa->Size = System::Drawing::Size(381, 89);
 			this->poleVoprosa->TabIndex = 0;
 			this->poleVoprosa->TextChanged += gcnew System::EventHandler(this, &Form2::poleVoprosa_TextChanged);
 			// 
@@ -100,10 +101,11 @@ namespace projectTest {
 			// 
 			this->otvBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->otvBox1->Location = System::Drawing::Point(33, 97);
+			this->otvBox1->Location = System::Drawing::Point(44, 119);
+			this->otvBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->otvBox1->Multiline = true;
 			this->otvBox1->Name = L"otvBox1";
-			this->otvBox1->Size = System::Drawing::Size(267, 42);
+			this->otvBox1->Size = System::Drawing::Size(355, 51);
 			this->otvBox1->TabIndex = 1;
 			this->otvBox1->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox1_TextChanged);
 			// 
@@ -111,10 +113,11 @@ namespace projectTest {
 			// 
 			this->otvBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->otvBox2->Location = System::Drawing::Point(33, 147);
+			this->otvBox2->Location = System::Drawing::Point(44, 181);
+			this->otvBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->otvBox2->Multiline = true;
 			this->otvBox2->Name = L"otvBox2";
-			this->otvBox2->Size = System::Drawing::Size(267, 42);
+			this->otvBox2->Size = System::Drawing::Size(355, 51);
 			this->otvBox2->TabIndex = 2;
 			this->otvBox2->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox2_TextChanged);
 			// 
@@ -122,10 +125,11 @@ namespace projectTest {
 			// 
 			this->otvBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->otvBox3->Location = System::Drawing::Point(33, 198);
+			this->otvBox3->Location = System::Drawing::Point(44, 244);
+			this->otvBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->otvBox3->Multiline = true;
 			this->otvBox3->Name = L"otvBox3";
-			this->otvBox3->Size = System::Drawing::Size(267, 42);
+			this->otvBox3->Size = System::Drawing::Size(355, 51);
 			this->otvBox3->TabIndex = 3;
 			this->otvBox3->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox3_TextChanged);
 			// 
@@ -133,19 +137,21 @@ namespace projectTest {
 			// 
 			this->otvBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->otvBox4->Location = System::Drawing::Point(33, 251);
+			this->otvBox4->Location = System::Drawing::Point(44, 309);
+			this->otvBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->otvBox4->Multiline = true;
 			this->otvBox4->Name = L"otvBox4";
-			this->otvBox4->Size = System::Drawing::Size(267, 42);
+			this->otvBox4->Size = System::Drawing::Size(355, 51);
 			this->otvBox4->TabIndex = 4;
 			this->otvBox4->TextChanged += gcnew System::EventHandler(this, &Form2::otvBox4_TextChanged);
 			// 
 			// RDBotvBox1
 			// 
 			this->RDBotvBox1->AutoSize = true;
-			this->RDBotvBox1->Location = System::Drawing::Point(13, 111);
+			this->RDBotvBox1->Location = System::Drawing::Point(17, 137);
+			this->RDBotvBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->RDBotvBox1->Name = L"RDBotvBox1";
-			this->RDBotvBox1->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox1->Size = System::Drawing::Size(17, 16);
 			this->RDBotvBox1->TabIndex = 5;
 			this->RDBotvBox1->TabStop = true;
 			this->RDBotvBox1->UseVisualStyleBackColor = true;
@@ -154,9 +160,10 @@ namespace projectTest {
 			// RDBotvBox2
 			// 
 			this->RDBotvBox2->AutoSize = true;
-			this->RDBotvBox2->Location = System::Drawing::Point(13, 163);
+			this->RDBotvBox2->Location = System::Drawing::Point(17, 201);
+			this->RDBotvBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->RDBotvBox2->Name = L"RDBotvBox2";
-			this->RDBotvBox2->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox2->Size = System::Drawing::Size(17, 16);
 			this->RDBotvBox2->TabIndex = 6;
 			this->RDBotvBox2->TabStop = true;
 			this->RDBotvBox2->UseVisualStyleBackColor = true;
@@ -165,9 +172,10 @@ namespace projectTest {
 			// RDBotvBox3
 			// 
 			this->RDBotvBox3->AutoSize = true;
-			this->RDBotvBox3->Location = System::Drawing::Point(13, 213);
+			this->RDBotvBox3->Location = System::Drawing::Point(17, 262);
+			this->RDBotvBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->RDBotvBox3->Name = L"RDBotvBox3";
-			this->RDBotvBox3->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox3->Size = System::Drawing::Size(17, 16);
 			this->RDBotvBox3->TabIndex = 7;
 			this->RDBotvBox3->TabStop = true;
 			this->RDBotvBox3->UseVisualStyleBackColor = true;
@@ -176,9 +184,10 @@ namespace projectTest {
 			// RDBotvBox4
 			// 
 			this->RDBotvBox4->AutoSize = true;
-			this->RDBotvBox4->Location = System::Drawing::Point(13, 265);
+			this->RDBotvBox4->Location = System::Drawing::Point(17, 326);
+			this->RDBotvBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->RDBotvBox4->Name = L"RDBotvBox4";
-			this->RDBotvBox4->Size = System::Drawing::Size(14, 13);
+			this->RDBotvBox4->Size = System::Drawing::Size(17, 16);
 			this->RDBotvBox4->TabIndex = 8;
 			this->RDBotvBox4->TabStop = true;
 			this->RDBotvBox4->UseVisualStyleBackColor = true;
@@ -190,9 +199,10 @@ namespace projectTest {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->nextTestBTM->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->nextTestBTM->Location = System::Drawing::Point(224, 309);
+			this->nextTestBTM->Location = System::Drawing::Point(299, 380);
+			this->nextTestBTM->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->nextTestBTM->Name = L"nextTestBTM";
-			this->nextTestBTM->Size = System::Drawing::Size(75, 31);
+			this->nextTestBTM->Size = System::Drawing::Size(100, 38);
 			this->nextTestBTM->TabIndex = 9;
 			this->nextTestBTM->Text = L"Далее ->";
 			this->nextTestBTM->UseVisualStyleBackColor = false;
@@ -204,9 +214,10 @@ namespace projectTest {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->finishTestBTM->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->finishTestBTM->Location = System::Drawing::Point(93, 309);
+			this->finishTestBTM->Location = System::Drawing::Point(124, 380);
+			this->finishTestBTM->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->finishTestBTM->Name = L"finishTestBTM";
-			this->finishTestBTM->Size = System::Drawing::Size(125, 31);
+			this->finishTestBTM->Size = System::Drawing::Size(167, 38);
 			this->finishTestBTM->TabIndex = 10;
 			this->finishTestBTM->Text = L"Завершить";
 			this->finishTestBTM->UseVisualStyleBackColor = false;
@@ -218,9 +229,10 @@ namespace projectTest {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->backTestBTM->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->backTestBTM->Location = System::Drawing::Point(12, 309);
+			this->backTestBTM->Location = System::Drawing::Point(16, 380);
+			this->backTestBTM->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->backTestBTM->Name = L"backTestBTM";
-			this->backTestBTM->Size = System::Drawing::Size(75, 31);
+			this->backTestBTM->Size = System::Drawing::Size(100, 38);
 			this->backTestBTM->TabIndex = 11;
 			this->backTestBTM->Text = L"<- Назад";
 			this->backTestBTM->UseVisualStyleBackColor = false;
@@ -228,10 +240,10 @@ namespace projectTest {
 			// 
 			// Form2
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Thistle;
-			this->ClientSize = System::Drawing::Size(312, 344);
+			this->ClientSize = System::Drawing::Size(416, 423);
 			this->Controls->Add(this->backTestBTM);
 			this->Controls->Add(this->finishTestBTM);
 			this->Controls->Add(this->nextTestBTM);
@@ -245,8 +257,10 @@ namespace projectTest {
 			this->Controls->Add(this->otvBox1);
 			this->Controls->Add(this->poleVoprosa);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"Form2";
-			this->Text = L"Тест №";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Тест № 1";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -259,7 +273,14 @@ namespace projectTest {
 		MessageBox::Show(this, "Вопрос сохранен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		poleVoprosa->Text = "";
 
+		
 		Form2^ formN = gcnew Form2();
+		//Смена номера теста
+		static int counter = 1;
+		this->Text = counter.ToString();
+		counter++;
+		formN->Text = "Тест № " + counter;
+		//Открытие новой формы
 		formN->Show();
 		this->Close();
 	}
