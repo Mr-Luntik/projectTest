@@ -2,8 +2,6 @@
 #include "Form2.h"
 
 namespace projectTest {
-
-	
 	using namespace System;
 	using namespace System::IO;
 	using namespace System::ComponentModel;
@@ -42,10 +40,6 @@ namespace projectTest {
 	private: System::Windows::Forms::Button^ butStartTest;
 	private: System::Windows::Forms::Button^ butSettingTest;
 	private: System::Windows::Forms::TextBox^ savePathTextBox;
-
-
-
-
 
 	protected:
 
