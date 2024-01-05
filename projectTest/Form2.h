@@ -296,7 +296,7 @@ namespace projectTest {
 		}
 #pragma endregion
 	private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
-		StreamWriter^ fileTxt = gcnew StreamWriter(path);
+		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//!!TEST!!.txt", true);
 		fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 		fileTxt->Close();
 		MessageBox::Show(this, "Вопрос сохранен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -337,12 +337,18 @@ private: System::Void RDBotvBox4_CheckedChanged(System::Object^ sender, System::
 private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	//Завершение создания вопросов и закрытие формы
-	StreamWriter^ fileTxt = gcnew StreamWriter(path);
-	fileTxt->Write(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
+	StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//!!TEST!!.txt", true);
+	fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 	fileTxt->Close();
 	MessageBox::Show(this, "Все вопросы сохранены!", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
-	poleVoprosa->Text = "";
 	this->Close();
+
+	poleVoprosa->Clear();
+	otvBox1->Clear();
+	otvBox2->Clear();
+	otvBox3->Clear();
+	otvBox4->Clear();
+	
 }
 private: System::Void backTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 }

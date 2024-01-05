@@ -152,26 +152,26 @@ namespace projectTest {
 #pragma endregion
 	private: System::Void butCreatTest_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Сохранение пути файла для дальнейшего использования
-		SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
-		saveFileDialog1->Filter = "TextFiles (*.txt)|*.txt|All files(*.*)|*.*";
+		/*SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();*/
+		/*saveFileDialog1->Filter = "TextFiles (*.txt)|*.txt|All files(*.*)|*.*";
 		saveFileDialog1->FilterIndex = 1;
 		saveFileDialog1->RestoreDirectory = true;
 		saveFileDialog1->CreatePrompt = true;
 		saveFileDialog1->OverwritePrompt = true;
 		saveFileDialog1->FileName = "VoprosKtestu";
-		saveFileDialog1->InitialDirectory = "C://Users//Msi//Desktop//VoprosKtestu.txt";
-		if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		saveFileDialog1->InitialDirectory = "C://Users//Msi//Desktop//VoprosKtestu.txt";*/
+		/*if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
-			System::IO::File::WriteAllText(saveFileDialog1->FileName, L"");
+			System::IO::File::WriteAllText(saveFileDialog1->FileName, L"");*/
 			//Открытие второй формы
 			Form2^ startForm2 = gcnew Form2();
 			//Сохранения пути к файлу в текст бокс
-			savePathTextBox->Text = saveFileDialog1->FileName;
-			startForm2->path = savePathTextBox->Text;
+			/*savePathTextBox->Text = saveFileDialog1->FileName;
+			startForm2->path = savePathTextBox->Text;*/
 			startForm2->Owner = this;
 			startForm2->Show();
 			this->Hide();
-		}
+	/*	}*/
 	}
 };
 }
