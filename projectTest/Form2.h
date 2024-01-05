@@ -1,6 +1,9 @@
 #pragma once
 //#include "Form1.h"
 //Коммиты не хотят работать
+#include <fstream>
+#include <iostream>
+#include <string>
 
 namespace projectTest {
 
@@ -293,23 +296,25 @@ namespace projectTest {
 		}
 #pragma endregion
 	private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
-
 		StreamWriter^ fileTxt = gcnew StreamWriter(path);
-		fileTxt->Write(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
+		fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 		fileTxt->Close();
 		MessageBox::Show(this, "Вопрос сохранен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		poleVoprosa->Text = "";
-
-		Form2^ formN = gcnew Form2();
-		formN->path = path;
-		//Смена номера теста
+		
+		//Чистка полей от старых данных для внесения новых
+		poleVoprosa->Clear();
+		otvBox1->Clear();
+		otvBox2->Clear();
+		otvBox3->Clear();
+		otvBox4->Clear();
+		
+		//
+		//Счетчик номеров тестов
+		//
 		static int counter = 1;
 		this->Text = counter.ToString();
 		counter++;
-		formN->Text = "Тест № " + counter;
-		//Открытие новой формы
-		formN->Show();
-		this->Close();
+		this->Text = "Тест № " + counter;
 	}
 private: System::Void poleVoprosa_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
