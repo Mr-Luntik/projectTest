@@ -295,7 +295,8 @@ namespace projectTest {
 
 		}
 #pragma endregion
-	private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//!!TEST!!.txt", true);
 		fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 		fileTxt->Close();
@@ -315,7 +316,43 @@ namespace projectTest {
 		this->Text = counter.ToString();
 		counter++;
 		this->Text = "Тест № " + counter;
+
+		//
+		//Блок радио баттон
+		//
+
+		String^ fileName = "C://Users//Msi//source//repos//projectTest//!!testO!!.txt";
+		StreamWriter^ sw = File::AppendText(fileName);
+		if (RDBotvBox1->Checked)
+		{
+			sw->WriteLine("1" + "\n" + "0" + "\n" + "0" + "\n" + "0" + "\n");
+			sw->Close();
+			RDBotvBox1->Checked = false;
+		}
+		
+		if (RDBotvBox2->Checked)
+		{
+			sw->WriteLine("0" + "\n" + "2" + "\n" + "0" + "\n" + "0" + "\n");
+			sw->Close();
+			RDBotvBox2->Checked = false;
+		}
+		
+		if (RDBotvBox3->Checked)
+		{
+			sw->WriteLine("0" + "\n" + "0" + "\n" + "3" + "\n" + "0" + "\n");
+			sw->Close();
+			RDBotvBox3->Checked = false;
+		}
+		
+		if (RDBotvBox4->Checked)
+		{
+			sw->WriteLine("0" + "\n" + "0" + "\n" + "0" + "\n" + "4" + "\n");
+			sw->Close();
+			RDBotvBox4->Checked = false;
+		}
+		
 	}
+
 private: System::Void poleVoprosa_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void otvBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -326,14 +363,30 @@ private: System::Void otvBox3_TextChanged(System::Object^ sender, System::EventA
 }
 private: System::Void otvBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
+
+	   //
+	   //Блок Радио Боттом
+	   //1
 private: System::Void RDBotvBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	
 }
+	   //2
 private: System::Void RDBotvBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
 }
+	   //3
 private: System::Void RDBotvBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	
 }
+	   //4
 private: System::Void RDBotvBox4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		
 }
+	   
+	   //
+	   //Кнопка завершения теста
+	   //
 private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	//Завершение создания вопросов и закрытие формы
@@ -349,6 +402,40 @@ private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventA
 	otvBox3->Clear();
 	otvBox4->Clear();
 	
+
+	//
+	//Блок радио баттом
+	//
+
+	String^ fileName = "C://Users//Msi//source//repos//projectTest//!!testO!!.txt";
+	StreamWriter^ sw = File::AppendText(fileName);
+	if (RDBotvBox1->Checked)
+	{
+		sw->WriteLine("1" + "\n" + "0" + "\n" + "0" + "\n" + "0" + "\n");
+		sw->Close();
+		RDBotvBox1->Checked = false;
+	}
+
+	if (RDBotvBox2->Checked)
+	{
+		sw->WriteLine("0" + "\n" + "2" + "\n" + "0" + "\n" + "0" + "\n");
+		sw->Close();
+		RDBotvBox2->Checked = false;
+	}
+
+	if (RDBotvBox3->Checked)
+	{
+		sw->WriteLine("0" + "\n" + "0" + "\n" + "3" + "\n" + "0" + "\n");
+		sw->Close();
+		RDBotvBox3->Checked = false;
+	}
+
+	if (RDBotvBox4->Checked)
+	{
+		sw->WriteLine("0" + "\n" + "0" + "\n" + "0" + "\n" + "4" + "\n");
+		sw->Close();
+		RDBotvBox4->Checked = false;
+	}
 }
 private: System::Void backTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 }
