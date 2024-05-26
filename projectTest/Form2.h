@@ -290,6 +290,7 @@ namespace projectTest {
 			this->Name = L"Form2";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Тест № 1";
+			this->Load += gcnew System::EventHandler(this, &Form2::Form2_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -297,11 +298,21 @@ namespace projectTest {
 #pragma endregion
 	
 private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
-		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//!!TEST!!.txt", true);
+
+		//
+		//Счетчик для создания новых файлов
+		//
+		static int counterForNumberTest = 0;
+		this->Text = counterForNumberTest.ToString();
+		counterForNumberTest++;
+
+		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt", true);
 		fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 		fileTxt->Close();
 		MessageBox::Show(this, "Вопрос сохранен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		
+		
+
 		//Чистка полей от старых данных для внесения новых
 		poleVoprosa->Clear();
 		otvBox1->Clear();
@@ -312,7 +323,7 @@ private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArg
 		//
 		//Счетчик номеров тестов
 		//
-		static int counter = 1;
+		static int counter = 0;
 		this->Text = counter.ToString();
 		counter++;
 		this->Text = "Тест № " + counter;
@@ -321,7 +332,8 @@ private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArg
 		//Блок радио баттон
 		//
 
-		String^ fileName = "C://Users//Msi//source//repos//projectTest//!!testO!!.txt";
+		fileTxt->Close();
+		String^ fileName = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counter + ".txt";
 		StreamWriter^ sw = File::AppendText(fileName);
 		if (RDBotvBox1->Checked)
 		{
@@ -390,7 +402,7 @@ private: System::Void RDBotvBox4_CheckedChanged(System::Object^ sender, System::
 private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	//Завершение создания вопросов и закрытие формы
-	StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//!!TEST!!.txt", true);
+	StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!", true);
 	fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 	fileTxt->Close();
 	MessageBox::Show(this, "Все вопросы сохранены!", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -406,7 +418,7 @@ private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventA
 	//
 	//Блок радио баттом
 	//
-
+	fileTxt->Close();
 	String^ fileName = "C://Users//Msi//source//repos//projectTest//!!testO!!.txt";
 	StreamWriter^ sw = File::AppendText(fileName);
 	if (RDBotvBox1->Checked)
@@ -438,6 +450,8 @@ private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventA
 	}
 }
 private: System::Void backTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Form2_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
