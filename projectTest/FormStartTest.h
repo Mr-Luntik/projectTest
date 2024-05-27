@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <string>
+#include <algorithm>
 #include <msclr/marshal.h>
 #include <msclr/marshal_cppstd.h>
 
@@ -26,6 +27,9 @@ namespace projectTest {
 		FormStartTest(void)
 		{
 			InitializeComponent();
+			funtionEnterElementForm();
+
+			
 			//
 			//TODO: добавьте код конструктора
 			//
@@ -58,6 +62,8 @@ namespace projectTest {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+
+
 
 
 
@@ -244,7 +250,7 @@ namespace projectTest {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::EnablePreventFocusChange;
 			this->BackColor = System::Drawing::Color::Thistle;
-			this->ClientSize = System::Drawing::Size(416, 423);
+			this->ClientSize = System::Drawing::Size(419, 423);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -267,176 +273,169 @@ namespace projectTest {
 		}
 #pragma endregion
 
+#pragma region
+		//
+		//Функция для заполнения полей вопроса и вариантов ответов
+		//
+		void funtionEnterElementForm(void)
+		{
+			//
+			//Код для считывания вопроса в textBox для вопроса из файла
+			//
+			static int counterForNumberTest = 0;
+			this->Text = counterForNumberTest.ToString();
+			counterForNumberTest++;
+			String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
+
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ reader0 = gcnew StreamReader(filePath);
+
+			// Считывание и пропуск пяти строк
+			for (int i = 1; i < 1; i++) {
+				reader0->ReadLine();
+			}
+
+			// Считывание шестой строки
+			String^ nullLine = reader0->ReadLine();
+
+			// Закрытие объекта класса StreamReader
+			reader0->Close();
+
+			// Запись шестой строки в labelForVopr
+			labelForVopr->Text = nullLine;
+			labelForVopr->Invalidate();
+			//
+			//Считывание первого вопроса в поле для вопроса 1
+			//
+
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ reader1 = gcnew StreamReader(filePath);
+
+			// Считывание и пропуск пяти строк
+			for (int i = 1; i < 2; i++) {
+				reader1->ReadLine();
+			}
+
+			// Считывание шестой строки
+			String^ oneLine = reader1->ReadLine();
+
+			// Закрытие объекта класса StreamReader
+			reader1->Close();
+
+			// Запись шестой строки в labelForVopr
+			labelforOTV1->Text = oneLine;
+			labelforOTV1->Invalidate();
+
+			//
+			// Считывание второго вопроса в поле для вопроса 2
+			//
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ reader2 = gcnew StreamReader(filePath);
+
+			// Считывание и пропуск пяти строк
+			for (int i = 1; i < 3; i++) {
+				reader2->ReadLine();
+			}
+
+			// Считывание шестой строки
+			String^ twoLine = reader2->ReadLine();
+
+			// Закрытие объекта класса StreamReader
+			reader2->Close();
+
+			// Запись шестой строки в labelForVopr
+			labelforOTV2->Text = twoLine;
+			labelforOTV2->Refresh();
+
+			//
+			// Считывание третьего вопроса в поле для вопроса 3
+			//
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ reader3 = gcnew StreamReader(filePath);
+
+			// Считывание и пропуск пяти строк
+			for (int i = 1; i < 4; i++) {
+				reader3->ReadLine();
+			}
+
+			// Считывание шестой строки
+			String^ threeLine = reader3->ReadLine();
+
+			// Закрытие объекта класса StreamReader
+			reader3->Close();
+
+			// Запись шестой строки в labelForVopr
+			labelforOTV3->Text = threeLine;
+			labelforOTV3->Invalidate();
+
+			//
+			// Считывание четвертого вопроса в поле для вопроса 4
+			//
+			 // Создание объекта класса StreamReader для чтения файла
+			StreamReader^ reader4 = gcnew StreamReader(filePath);
+
+			// Считывание и пропуск пяти строк
+			for (int i = 1; i < 5; i++) {
+				reader4->ReadLine();
+			}
+
+			// Считывание шестой строки
+			String^ fourLine = reader4->ReadLine();
+
+			// Закрытие объекта класса StreamReader
+			reader4->Close();
+
+			// Запись шестой строки в labelForVopr
+			labelforOTV4->Text = fourLine;
+			labelforOTV4->Invalidate();
+		}
+#pragma endregion
+
 		//
 		//Лейбл для вопроса
 		//
-
 	private: System::Void labelForVopr_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		static int counterForNumberTest = 0;
-		this->Text = counterForNumberTest.ToString();
-		counterForNumberTest++;
-
-		String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
-
-		// Создание объекта класса StreamReader для чтения файла
-		StreamReader^ reader = gcnew StreamReader(filePath);
-
-		// Считывание и пропуск пяти строк
-		for (int i = 1; i < 1; i++) {
-			reader->ReadLine();
-		}
-
-		// Считывание шестой строки
-		String^ sixthLine = reader->ReadLine();
-
-		// Закрытие объекта класса StreamReader
-		reader->Close();
-
-		// Запись шестой строки в labelForVopr
-		labelForVopr->Text = sixthLine;
-		labelForVopr->Refresh();
-		
 	}
+		//
+		//Лейблы под ответы
+		//1
 
-		   //
-		   //Лейблы под ответы
-		   //1
-
-		   private: System::Void labelforOTV1_Click(System::Object ^ sender, System::EventArgs ^ e) {
-
-			   static int counterForNumberTest = 0;
-			   this->Text = counterForNumberTest.ToString();
-			   counterForNumberTest++;
-
-			   String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
-
-			   // Создание объекта класса StreamReader для чтения файла
-			   StreamReader^ reader = gcnew StreamReader(filePath);
-
-			   // Считывание и пропуск пяти строк
-			   for (int i = 1; i < 2; i++) {
-				   reader->ReadLine();
-			   }
-
-			   // Считывание шестой строки
-			   String^ sixthLine = reader->ReadLine();
-
-			   // Закрытие объекта класса StreamReader
-			   reader->Close();
-
-			   // Запись шестой строки в labelForVopr
-			   labelforOTV1->Text = sixthLine;
-			   labelforOTV1->Refresh();
-		   }
-				  //2
-		   private: System::Void labelforOTV2_Click(System::Object ^ sender, System::EventArgs ^ e) {
-
-			   static int counterForNumberTest = 0;
-			   this->Text = counterForNumberTest.ToString();
-			   counterForNumberTest++;
-
-			   String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
-
-			   // Создание объекта класса StreamReader для чтения файла
-			   StreamReader^ reader = gcnew StreamReader(filePath);
-
-			   // Считывание и пропуск пяти строк
-			   for (int i = 1; i < 3; i++) {
-				   reader->ReadLine();
-			   }
-
-			   // Считывание шестой строки
-			   String^ sixthLine = reader->ReadLine();
-
-			   // Закрытие объекта класса StreamReader
-			   reader->Close();
-
-			   // Запись шестой строки в labelForVopr
-			   labelforOTV2->Text = sixthLine;
-			   labelforOTV2->Refresh();
-		   }
-				  //3
-		   private: System::Void labelforOTV3_Click(System::Object ^ sender, System::EventArgs ^ e) {
-			   
-			   static int counterForNumberTest = 0;
-			   this->Text = counterForNumberTest.ToString();
-			   counterForNumberTest++;
-
-			   String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
-
-			   // Создание объекта класса StreamReader для чтения файла
-			   StreamReader^ reader = gcnew StreamReader(filePath);
-
-			   // Считывание и пропуск пяти строк
-			   for (int i = 1; i < 4; i++) {
-				   reader->ReadLine();
-			   }
-
-			   // Считывание шестой строки
-			   String^ sixthLine = reader->ReadLine();
-
-			   // Закрытие объекта класса StreamReader
-			   reader->Close();
-
-			   // Запись шестой строки в labelForVopr
-			   labelforOTV3->Text = sixthLine;
-			   labelforOTV3->Refresh();
-		   }
-				  //4
-		   private: System::Void labelforOTV4_Click(System::Object ^ sender, System::EventArgs ^ e) {
-
-			   static int counterForNumberTest = 0;
-			   this->Text = counterForNumberTest.ToString();
-			   counterForNumberTest++;
-
-			   String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
-
-			   // Создание объекта класса StreamReader для чтения файла
-			   StreamReader^ reader = gcnew StreamReader(filePath);
-
-			   // Считывание и пропуск пяти строк
-			   for (int i = 1; i < 5; i++) {
-				   reader->ReadLine();
-			   }
-
-			   // Считывание шестой строки
-			   String^ sixthLine = reader->ReadLine();
-
-			   // Закрытие объекта класса StreamReader
-			   reader->Close();
-
-			   // Запись шестой строки в labelForVopr
-			   labelforOTV4->Text = sixthLine;
-			   for (int i = 0; i < 1; i++)
-			   {
-				   labelforOTV4->Refresh();
-			   }
-		   }
+	private: System::Void labelforOTV1_Click(System::Object ^ sender, System::EventArgs ^ e) {
+		  
+	}
+		//2
+	private: System::Void labelforOTV2_Click(System::Object ^ sender, System::EventArgs ^ e) {
+		  
+	}
+		//3
+	private: System::Void labelforOTV3_Click(System::Object ^ sender, System::EventArgs ^ e) {
+			   	  
+	}
+		//4
+	private: System::Void labelforOTV4_Click(System::Object ^ sender, System::EventArgs ^ e) {
+		  
+	}
 
 		   //
 		   //Кнопки выбора ответа
 		   //1
 	private: System::Void RDBotv1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		
 		RDBotv1->Checked = false;
 	}
 		   //2
 	private: System::Void RDBotv2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		
 		
 		RDBotv2->Checked = false;
 	}
 		   //3
 	private: System::Void RDBotv3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		
-		
 		RDBotv3->Checked = false;
 	}
 		   //4
 	private: System::Void RDBotv4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		
 		
 		RDBotv4->Checked = false;
 	}
@@ -449,52 +448,8 @@ namespace projectTest {
 		labelforOTV2->Text = "";
 		labelforOTV3->Text = "";
 		labelforOTV4->Text = "";
-		
-		//
-		//По идеи тут запись следующего вопроса
-		//Запись вопроса №2
-		//
 
-		// Чтение данных из файла
-		
-			std::ifstream file("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!");
-			if (file.is_open())
-			{
-				std::string line;
-
-				// Пропустить нужное количество строк
-				for (int i = 0; i < 1; i++)
-				{
-					std::getline(file, line);
-				}
-
-				// Считать вопрос
-				std::getline(file, line);
-				labelForVopr->Text = gcnew System::String(line.c_str());
-
-				// Считать и вывести ответы
-				for (int i = 0; i < 4; i++)
-				{
-					std::getline(file, line);
-					switch (i)
-					{
-					case 0:
-						labelforOTV1->Text = gcnew System::String(line.c_str());
-						break;
-					case 1:
-						labelforOTV2->Text = gcnew System::String(line.c_str());
-						break;
-					case 2:
-						labelforOTV3->Text = gcnew System::String(line.c_str());
-						break;
-					case 3:
-						labelforOTV1->Text = gcnew System::String(line.c_str());
-						break;
-					}
-				}
-
-				file.close();
-			}
 	}
+		   
 };
 }
