@@ -14,10 +14,13 @@ namespace projectTest {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	static int counter = 2;
+	static int RBT = 0;
 	/// <summary>
 	/// Сводка для Form2
 	/// </summary>
+	
+	
 	public ref class Form2 : public System::Windows::Forms::Form
 	{
 	public:
@@ -289,7 +292,7 @@ namespace projectTest {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Form2";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Тест № 1";
+			this->Text = L"Вопрос № 1";
 			this->Load += gcnew System::EventHandler(this, &Form2::Form2_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -323,17 +326,19 @@ private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArg
 		//
 		//Счетчик номеров тестов
 		//
-		static int counter = 0;
-		this->Text = counter.ToString();
+		
+		this->Text = "Вопрос №" + counter.ToString();
 		counter++;
-		this->Text = "Тест № " + counter;
+		
 
 		//
 		//Блок радио баттон
 		//
 
 		fileTxt->Close();
-		String^ fileName = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counter + ".txt";
+		RBT.ToString();
+		RBT++;
+		String^ fileName = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + RBT + ".txt";
 		StreamWriter^ sw = File::AppendText(fileName);
 		if (RDBotvBox1->Checked)
 		{

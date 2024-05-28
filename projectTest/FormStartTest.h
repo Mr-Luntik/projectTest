@@ -6,6 +6,9 @@
 #include <algorithm>
 #include <msclr/marshal.h>
 #include <msclr/marshal_cppstd.h>
+#include "Form2.h"
+
+
 
 namespace projectTest {
 
@@ -17,10 +20,15 @@ namespace projectTest {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
-
+	
+	static int counterForNumberTest = 0;
+	static int CounterShef = 0;
+	static int counterNumberRBT = 0;
 	/// <summary>
 	/// Сводка для FormStartTest
 	/// </summary>
+
+	
 	public ref class FormStartTest : public System::Windows::Forms::Form
 	{
 	public:
@@ -28,7 +36,6 @@ namespace projectTest {
 		{
 			InitializeComponent();
 			funtionEnterElementForm();
-
 			
 			//
 			//TODO: добавьте код конструктора
@@ -63,15 +70,9 @@ namespace projectTest {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 
-
-
-
-
-
 	protected:
 
 	protected:
-
 
 	private:
 		/// <summary>
@@ -273,16 +274,16 @@ namespace projectTest {
 		}
 #pragma endregion
 
-#pragma region
+#pragma region Тут функция для вывода вопроса и ответов на данный вопрос
 		//
 		//Функция для заполнения полей вопроса и вариантов ответов
 		//
+		
 		void funtionEnterElementForm(void)
 		{
 			//
 			//Код для считывания вопроса в textBox для вопроса из файла
 			//
-			static int counterForNumberTest = 0;
 			this->Text = counterForNumberTest.ToString();
 			counterForNumberTest++;
 			String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
@@ -290,7 +291,7 @@ namespace projectTest {
 			// Создание объекта класса StreamReader для чтения файла
 			StreamReader^ reader0 = gcnew StreamReader(filePath);
 
-			// Считывание и пропуск пяти строк
+			// Считывание первой строки и вопроса который в нем содержится
 			for (int i = 1; i < 1; i++) {
 				reader0->ReadLine();
 			}
@@ -345,7 +346,7 @@ namespace projectTest {
 
 			// Запись шестой строки в labelForVopr
 			labelforOTV2->Text = twoLine;
-			labelforOTV2->Refresh();
+			labelforOTV2->Invalidate();
 
 			//
 			// Считывание третьего вопроса в поле для вопроса 3
@@ -421,7 +422,29 @@ namespace projectTest {
 		   //Кнопки выбора ответа
 		   //1
 	private: System::Void RDBotv1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		String^ RBT = "1";
 
+		counterNumberRBT.ToString();
+		counterNumberRBT++;
+		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterNumberRBT + ".txt";
+
+		// Создание объекта класса StreamReader для чтения файла
+		StreamReader^ readerOtv0 = gcnew StreamReader(filePath);
+
+		// Считывание первой строки и вопроса который в нем содержится
+		for (int i = 1; i < 1; i++) {
+			readerOtv0->ReadLine();
+		}
+
+		// Считывание первой строки
+		String^ nullLine = readerOtv0->ReadLine();
+		if (RBT == nullLine)
+		{
+			CounterShef++;
+		}
+
+		// Закрытие объекта класса StreamReader
+		readerOtv0->Close();
 		RDBotv1->Checked = false;
 	}
 		   //2
@@ -440,15 +463,19 @@ namespace projectTest {
 		RDBotv4->Checked = false;
 	}
 
+		   //
+		   //Это кнопка для перехода к следующему вопросу
+		   //
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		//Чистка полей от старых вопрос и ответов
+
 		labelForVopr->Text = "";
 		labelforOTV1->Text = "";
 		labelforOTV2->Text = "";
 		labelforOTV3->Text = "";
 		labelforOTV4->Text = "";
-
+		funtionEnterElementForm();
 	}
 		   
 };
