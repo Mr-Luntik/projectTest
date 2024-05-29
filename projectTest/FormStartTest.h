@@ -7,6 +7,7 @@
 #include <msclr/marshal.h>
 #include <msclr/marshal_cppstd.h>
 #include "Form2.h"
+#include "FormResultTestov.h"
 
 
 
@@ -24,6 +25,7 @@ namespace projectTest {
 	static int counterForNumberTest = 0;
 	static int CounterShef = 0;
 	static int counterNumberRBT = 0;
+	
 	/// <summary>
 	/// Сводка для FormStartTest
 	/// </summary>
@@ -36,6 +38,8 @@ namespace projectTest {
 		{
 			InitializeComponent();
 			funtionEnterElementForm();
+			
+
 			
 			//
 			//TODO: добавьте код конструктора
@@ -168,7 +172,6 @@ namespace projectTest {
 			this->RDBotv1->Name = L"RDBotv1";
 			this->RDBotv1->Size = System::Drawing::Size(17, 16);
 			this->RDBotv1->TabIndex = 5;
-			this->RDBotv1->TabStop = true;
 			this->RDBotv1->UseVisualStyleBackColor = true;
 			this->RDBotv1->CheckedChanged += gcnew System::EventHandler(this, &FormStartTest::RDBotv1_CheckedChanged);
 			// 
@@ -179,7 +182,6 @@ namespace projectTest {
 			this->RDBotv2->Name = L"RDBotv2";
 			this->RDBotv2->Size = System::Drawing::Size(17, 16);
 			this->RDBotv2->TabIndex = 6;
-			this->RDBotv2->TabStop = true;
 			this->RDBotv2->UseVisualStyleBackColor = true;
 			this->RDBotv2->CheckedChanged += gcnew System::EventHandler(this, &FormStartTest::RDBotv2_CheckedChanged);
 			// 
@@ -190,7 +192,6 @@ namespace projectTest {
 			this->RDBotv3->Name = L"RDBotv3";
 			this->RDBotv3->Size = System::Drawing::Size(17, 16);
 			this->RDBotv3->TabIndex = 7;
-			this->RDBotv3->TabStop = true;
 			this->RDBotv3->UseVisualStyleBackColor = true;
 			this->RDBotv3->CheckedChanged += gcnew System::EventHandler(this, &FormStartTest::RDBotv3_CheckedChanged);
 			// 
@@ -201,7 +202,6 @@ namespace projectTest {
 			this->RDBotv4->Name = L"RDBotv4";
 			this->RDBotv4->Size = System::Drawing::Size(17, 16);
 			this->RDBotv4->TabIndex = 8;
-			this->RDBotv4->TabStop = true;
 			this->RDBotv4->UseVisualStyleBackColor = true;
 			this->RDBotv4->CheckedChanged += gcnew System::EventHandler(this, &FormStartTest::RDBotv4_CheckedChanged);
 			// 
@@ -231,6 +231,7 @@ namespace projectTest {
 			this->button2->TabIndex = 10;
 			this->button2->Text = L"Предыдущий вопрос";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FormStartTest::button2_Click);
 			// 
 			// button3
 			// 
@@ -288,107 +289,121 @@ namespace projectTest {
 			counterForNumberTest++;
 			String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
 
+			
 			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ reader0 = gcnew StreamReader(filePath);
+			try
+			{
+				StreamReader^ reader0 = gcnew StreamReader(filePath);
+				// Считывание первой строки и вопроса который в нем содержится
+				for (int i = 1; i < 1; i++) {
+					reader0->ReadLine();
+				}
 
-			// Считывание первой строки и вопроса который в нем содержится
-			for (int i = 1; i < 1; i++) {
-				reader0->ReadLine();
+				// Считывание шестой строки
+				String^ nullLine = reader0->ReadLine();
+
+				// Закрытие объекта класса StreamReader
+				reader0->Close();
+
+				// Запись шестой строки в labelForVopr
+				labelForVopr->Text = nullLine;
+				labelForVopr->Invalidate();
+				//
+				//Считывание первого вопроса в поле для вопроса 1
+				//
+
+				// Создание объекта класса StreamReader для чтения файла
+				StreamReader^ reader1 = gcnew StreamReader(filePath);
+
+				// Считывание и пропуск пяти строк
+				for (int i = 1; i < 2; i++) {
+					reader1->ReadLine();
+				}
+
+				// Считывание шестой строки
+				String^ oneLine = reader1->ReadLine();
+
+				// Закрытие объекта класса StreamReader
+				reader1->Close();
+
+				// Запись шестой строки в labelForVopr
+				labelforOTV1->Text = oneLine;
+				labelforOTV1->Invalidate();
+
+				//
+				// Считывание второго вопроса в поле для вопроса 2
+				//
+
+				// Создание объекта класса StreamReader для чтения файла
+				StreamReader^ reader2 = gcnew StreamReader(filePath);
+
+				// Считывание и пропуск пяти строк
+				for (int i = 1; i < 3; i++) {
+					reader2->ReadLine();
+				}
+
+				// Считывание шестой строки
+				String^ twoLine = reader2->ReadLine();
+
+				// Закрытие объекта класса StreamReader
+				reader2->Close();
+
+				// Запись шестой строки в labelForVopr
+				labelforOTV2->Text = twoLine;
+				labelforOTV2->Invalidate();
+
+				//
+				// Считывание третьего вопроса в поле для вопроса 3
+				//
+
+				// Создание объекта класса StreamReader для чтения файла
+				StreamReader^ reader3 = gcnew StreamReader(filePath);
+
+				// Считывание и пропуск пяти строк
+				for (int i = 1; i < 4; i++) {
+					reader3->ReadLine();
+				}
+
+				// Считывание шестой строки
+				String^ threeLine = reader3->ReadLine();
+
+				// Закрытие объекта класса StreamReader
+				reader3->Close();
+
+				// Запись шестой строки в labelForVopr
+				labelforOTV3->Text = threeLine;
+				labelforOTV3->Invalidate();
+
+				//
+				// Считывание четвертого вопроса в поле для вопроса 4
+				//
+				 // Создание объекта класса StreamReader для чтения файла
+				StreamReader^ reader4 = gcnew StreamReader(filePath);
+
+				// Считывание и пропуск пяти строк
+				for (int i = 1; i < 5; i++) {
+					reader4->ReadLine();
+				}
+
+				// Считывание шестой строки
+				String^ fourLine = reader4->ReadLine();
+
+				// Закрытие объекта класса StreamReader
+				reader4->Close();
+
+				// Запись шестой строки в labelForVopr
+				labelforOTV4->Text = fourLine;
+				labelforOTV4->Invalidate();
 			}
-
-			// Считывание шестой строки
-			String^ nullLine = reader0->ReadLine();
-
-			// Закрытие объекта класса StreamReader
-			reader0->Close();
-
-			// Запись шестой строки в labelForVopr
-			labelForVopr->Text = nullLine;
-			labelForVopr->Invalidate();
-			//
-			//Считывание первого вопроса в поле для вопроса 1
-			//
-
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ reader1 = gcnew StreamReader(filePath);
-
-			// Считывание и пропуск пяти строк
-			for (int i = 1; i < 2; i++) {
-				reader1->ReadLine();
+			catch (System::IO::FileNotFoundException^ ex)
+			{
+				MessageBox::Show("Тест завершен, вы переноситесь к результатам.", "Итог", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				FormResultTestov^ startItog = gcnew FormResultTestov();
+				startItog->Owner = this;
+				startItog->Show();
+				this->Hide();
 			}
-
-			// Считывание шестой строки
-			String^ oneLine = reader1->ReadLine();
-
-			// Закрытие объекта класса StreamReader
-			reader1->Close();
-
-			// Запись шестой строки в labelForVopr
-			labelforOTV1->Text = oneLine;
-			labelforOTV1->Invalidate();
-
-			//
-			// Считывание второго вопроса в поле для вопроса 2
-			//
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ reader2 = gcnew StreamReader(filePath);
-
-			// Считывание и пропуск пяти строк
-			for (int i = 1; i < 3; i++) {
-				reader2->ReadLine();
-			}
-
-			// Считывание шестой строки
-			String^ twoLine = reader2->ReadLine();
-
-			// Закрытие объекта класса StreamReader
-			reader2->Close();
-
-			// Запись шестой строки в labelForVopr
-			labelforOTV2->Text = twoLine;
-			labelforOTV2->Invalidate();
-
-			//
-			// Считывание третьего вопроса в поле для вопроса 3
-			//
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ reader3 = gcnew StreamReader(filePath);
-
-			// Считывание и пропуск пяти строк
-			for (int i = 1; i < 4; i++) {
-				reader3->ReadLine();
-			}
-
-			// Считывание шестой строки
-			String^ threeLine = reader3->ReadLine();
-
-			// Закрытие объекта класса StreamReader
-			reader3->Close();
-
-			// Запись шестой строки в labelForVopr
-			labelforOTV3->Text = threeLine;
-			labelforOTV3->Invalidate();
-
-			//
-			// Считывание четвертого вопроса в поле для вопроса 4
-			//
-			 // Создание объекта класса StreamReader для чтения файла
-			StreamReader^ reader4 = gcnew StreamReader(filePath);
-
-			// Считывание и пропуск пяти строк
-			for (int i = 1; i < 5; i++) {
-				reader4->ReadLine();
-			}
-
-			// Считывание шестой строки
-			String^ fourLine = reader4->ReadLine();
-
-			// Закрытие объекта класса StreamReader
-			reader4->Close();
-
-			// Запись шестой строки в labelForVopr
-			labelforOTV4->Text = fourLine;
-			labelforOTV4->Invalidate();
+			
 		}
 #pragma endregion
 
@@ -418,50 +433,123 @@ namespace projectTest {
 		  
 	}
 
+		   void functoinClearForRDT()
+		   {
+			   RDBotv1->Checked = false;
+			   RDBotv2->Checked = false;
+			   RDBotv3->Checked = false;
+			   RDBotv4->Checked = false;
+		   }
 		   //
 		   //Кнопки выбора ответа
 		   //1
+		   
+#pragma region Блок Кнопок выбора ответа RDB
+		
 	private: System::Void RDBotv1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		String^ RBT = "1";
-
-		counterNumberRBT.ToString();
-		counterNumberRBT++;
-		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterNumberRBT + ".txt";
+		//
+		//RBT = "1" - это число данного ответа.
+		//
+		String^ RDB = "1";
+		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
 
 		// Создание объекта класса StreamReader для чтения файла
-		StreamReader^ readerOtv0 = gcnew StreamReader(filePath);
+		StreamReader^ readerRDB0 = gcnew StreamReader(filePath);
 
 		// Считывание первой строки и вопроса который в нем содержится
 		for (int i = 1; i < 1; i++) {
-			readerOtv0->ReadLine();
+			readerRDB0->ReadLine();
 		}
 
 		// Считывание первой строки
-		String^ nullLine = readerOtv0->ReadLine();
-		if (RBT == nullLine)
+		String^ nullRDBLine = readerRDB0->ReadLine();
+		if (RDB == nullRDBLine)
 		{
 			CounterShef++;
 		}
 
 		// Закрытие объекта класса StreamReader
-		readerOtv0->Close();
-		RDBotv1->Checked = false;
+		readerRDB0->Close();
+		
 	}
+	
 		   //2
 	private: System::Void RDBotv2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		
-		RDBotv2->Checked = false;
+		String^ RBT = "2";
+
+		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
+
+		// Создание объекта класса StreamReader для чтения файла
+		StreamReader^ readerRDB1 = gcnew StreamReader(filePath);
+
+		// Считывание первой строки и вопроса который в нем содержится
+		for (int i = 1; i < 2; i++) {
+			readerRDB1->ReadLine();
+		}
+
+		// Считывание первой строки
+		String^ oneRDBLine = readerRDB1->ReadLine();
+		if (RBT == oneRDBLine)
+		{
+			CounterShef++;
+		}
+
+		// Закрытие объекта класса StreamReader
+		readerRDB1->Close();
+		
 	}
 		   //3
 	private: System::Void RDBotv3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		String^ RBT = "3";
+
+		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
+
+		// Создание объекта класса StreamReader для чтения файла
+		StreamReader^ readerRDB2 = gcnew StreamReader(filePath);
+
+		// Считывание первой строки и вопроса который в нем содержится
+		for (int i = 1; i < 3; i++) {
+			readerRDB2->ReadLine();
+		}
+
+		// Считывание первой строки
+		String^ twoRDBLine = readerRDB2->ReadLine();
+		if (RBT == twoRDBLine)
+		{
+			CounterShef++;
+		}
+
+		// Закрытие объекта класса StreamReader
+		readerRDB2->Close();
 		
-		RDBotv3->Checked = false;
 	}
 		   //4
 	private: System::Void RDBotv4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		String^ RBT = "4";
+
+		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
+
+		// Создание объекта класса StreamReader для чтения файла
+		StreamReader^ readerRDB0 = gcnew StreamReader(filePath);
+
+		// Считывание первой строки и вопроса который в нем содержится
+		for (int i = 1; i < 4; i++) {
+			readerRDB0->ReadLine();
+		}
+
+		// Считывание первой строки
+		String^ nullRDBLine = readerRDB0->ReadLine();
+		if (RBT == nullRDBLine)
+		{
+			CounterShef++;
+		}
+
+		// Закрытие объекта класса StreamReader
+		readerRDB0->Close();
 		
-		RDBotv4->Checked = false;
 	}
+#pragma endregion
 
 		   //
 		   //Это кнопка для перехода к следующему вопросу
@@ -475,8 +563,14 @@ namespace projectTest {
 		labelforOTV2->Text = "";
 		labelforOTV3->Text = "";
 		labelforOTV4->Text = "";
+
 		funtionEnterElementForm();
+		functoinClearForRDT();
 	}
 		   
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*funtionEnterElementForm();
+		counterForNumberTest--;*/
+	}
 };
 }
