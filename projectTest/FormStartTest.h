@@ -37,7 +37,8 @@ namespace projectTest {
 		FormStartTest(void)
 		{
 			InitializeComponent();
-			funtionEnterElementForm();
+			int value = 1;
+			funtionEnterElementForm(value);
 			
 
 			
@@ -280,13 +281,23 @@ namespace projectTest {
 		//Функция для заполнения полей вопроса и вариантов ответов
 		//
 		
-		void funtionEnterElementForm(void)
+		void funtionEnterElementForm(int& value)
 		{
 			//
 			//Код для считывания вопроса в textBox для вопроса из файла
 			//
+			if (value == 0)
+			{
+				counterForNumberTest--;
+			}
+			else
+			{
+				counterForNumberTest++;
+			}
+
 			this->Text = counterForNumberTest.ToString();
-			counterForNumberTest++;
+			
+			
 			String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
 
 			
@@ -563,14 +574,17 @@ namespace projectTest {
 		labelforOTV2->Text = "";
 		labelforOTV3->Text = "";
 		labelforOTV4->Text = "";
-
-		funtionEnterElementForm();
+		int value = 1;
+		/*value.ToString();*/
+		funtionEnterElementForm(value);
 		functoinClearForRDT();
 	}
 		   
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*funtionEnterElementForm();
-		counterForNumberTest--;*/
+		int value = 0;
+		funtionEnterElementForm(value);
+		functoinClearForRDT();
+		
 	}
 };
 }
