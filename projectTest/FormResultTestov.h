@@ -14,10 +14,14 @@ namespace projectTest {
 	/// </summary>
 	public ref class FormResultTestov : public System::Windows::Forms::Form
 	{
+	public: int^ counterShef;
 	public:
-		FormResultTestov(void)
+		FormResultTestov()
 		{
 			InitializeComponent();
+			
+			
+			
 			//
 			//TODO: добавьте код конструктора
 			//
@@ -36,6 +40,8 @@ namespace projectTest {
 		}
 	private: System::Windows::Forms::Label^ ItogZaTest;
 	private: System::Windows::Forms::Button^ Exit;
+
+
 	protected:
 
 
@@ -71,6 +77,7 @@ namespace projectTest {
 			this->ItogZaTest->Size = System::Drawing::Size(391, 154);
 			this->ItogZaTest->TabIndex = 0;
 			this->ItogZaTest->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->ItogZaTest->TextChanged += gcnew System::EventHandler(this, &FormResultTestov::ItogZaTest_Click);
 			this->ItogZaTest->Click += gcnew System::EventHandler(this, &FormResultTestov::ItogZaTest_Click);
 			// 
 			// Exit
@@ -78,7 +85,7 @@ namespace projectTest {
 			this->Exit->BackColor = System::Drawing::Color::Plum;
 			this->Exit->Font = (gcnew System::Drawing::Font(L"Times New Roman", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->Exit->Location = System::Drawing::Point(74, 202);
+			this->Exit->Location = System::Drawing::Point(72, 328);
 			this->Exit->Name = L"Exit";
 			this->Exit->Size = System::Drawing::Size(268, 64);
 			this->Exit->TabIndex = 1;
@@ -101,8 +108,10 @@ namespace projectTest {
 
 		}
 #pragma endregion
-	private: System::Void ItogZaTest_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
+
+	public: System::Void ItogZaTest_Click(System::Object^ sender, System::EventArgs^ e) {
+		ItogZaTest->Text = counterShef->ToString();
 	}
-	};
+};
 }

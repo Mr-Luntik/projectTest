@@ -24,6 +24,7 @@ namespace projectTest {
 	
 	static int counterForNumberTest = 0;
 	static int CounterShef = 0;
+	
 	static int counterNumberRBT = 0;
 	
 	/// <summary>
@@ -33,13 +34,14 @@ namespace projectTest {
 	
 	public ref class FormStartTest : public System::Windows::Forms::Form
 	{
+	
 	public:
 		FormStartTest(void)
 		{
 			InitializeComponent();
 			int value = 1;
 			funtionEnterElementForm(value);
-			
+			/*polyaForRBT();*/
 
 			
 			//
@@ -72,7 +74,8 @@ namespace projectTest {
 	private: System::Windows::Forms::RadioButton^ RDBotv3;
 	private: System::Windows::Forms::RadioButton^ RDBotv4;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button2BackVopros;
+
 	private: System::Windows::Forms::Button^ button3;
 
 	protected:
@@ -102,7 +105,7 @@ namespace projectTest {
 			this->RDBotv3 = (gcnew System::Windows::Forms::RadioButton());
 			this->RDBotv4 = (gcnew System::Windows::Forms::RadioButton());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button2BackVopros = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -220,19 +223,19 @@ namespace projectTest {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &FormStartTest::button1_Click);
 			// 
-			// button2
+			// button2BackVopros
 			// 
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2BackVopros->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->button2BackVopros->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->ForeColor = System::Drawing::Color::Black;
-			this->button2->Location = System::Drawing::Point(3, 378);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(120, 40);
-			this->button2->TabIndex = 10;
-			this->button2->Text = L"Предыдущий вопрос";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &FormStartTest::button2_Click);
+			this->button2BackVopros->ForeColor = System::Drawing::Color::Black;
+			this->button2BackVopros->Location = System::Drawing::Point(3, 378);
+			this->button2BackVopros->Name = L"button2BackVopros";
+			this->button2BackVopros->Size = System::Drawing::Size(120, 40);
+			this->button2BackVopros->TabIndex = 10;
+			this->button2BackVopros->Text = L"Предыдущий вопрос";
+			this->button2BackVopros->UseVisualStyleBackColor = true;
+			this->button2BackVopros->Click += gcnew System::EventHandler(this, &FormStartTest::button2_Click);
 			// 
 			// button3
 			// 
@@ -255,7 +258,7 @@ namespace projectTest {
 			this->BackColor = System::Drawing::Color::Thistle;
 			this->ClientSize = System::Drawing::Size(419, 423);
 			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->button2BackVopros);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->RDBotv4);
 			this->Controls->Add(this->RDBotv3);
@@ -405,11 +408,15 @@ namespace projectTest {
 				// Запись шестой строки в labelForVopr
 				labelforOTV4->Text = fourLine;
 				labelforOTV4->Invalidate();
+				polyaForRBT();
+
 			}
 			catch (System::IO::FileNotFoundException^ ex)
 			{
 				MessageBox::Show("Тест завершен, вы переноситесь к результатам.", "Итог", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				FormResultTestov^ startItog = gcnew FormResultTestov();
+				
+				startItog->counterShef = CounterShef;
 				startItog->Owner = this;
 				startItog->Show();
 				this->Hide();
@@ -444,121 +451,116 @@ namespace projectTest {
 		  
 	}
 
-		   void functoinClearForRDT()
+	   void functoinClearForRDT()
 		   {
 			   RDBotv1->Checked = false;
 			   RDBotv2->Checked = false;
 			   RDBotv3->Checked = false;
 			   RDBotv4->Checked = false;
-		   }
+	   }
 		   //
 		   //Кнопки выбора ответа
 		   //1
 		   
 #pragma region Блок Кнопок выбора ответа RDB
-		
-	private: System::Void RDBotv1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		//
-		//RBT = "1" - это число данного ответа.
-		//
-		String^ RDB = "1";
-		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
-
-		// Создание объекта класса StreamReader для чтения файла
-		StreamReader^ readerRDB0 = gcnew StreamReader(filePath);
-
-		// Считывание первой строки и вопроса который в нем содержится
-		for (int i = 1; i < 1; i++) {
-			readerRDB0->ReadLine();
-		}
-
-		// Считывание первой строки
-		String^ nullRDBLine = readerRDB0->ReadLine();
-		if (RDB == nullRDBLine)
+	public: void polyaForRBT()
+	{
+		try
 		{
-			CounterShef++;
-		}
+			String^ RDB1 = "1";
+			String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ readerRDB0 = gcnew StreamReader(filePath);
+			// Считывание первой строки и ответа на вопрос
+			for (int i = 1; i < 1; i++) {
+				readerRDB0->ReadLine();
+			}
+			// Считывание первой строки
+			String^ nullRDBLine = readerRDB0->ReadLine();
+			if (RDB1 == nullRDBLine)
+			{
+				CounterShef++;
+			}
+			// Закрытие объекта класса StreamReader
+			readerRDB0->Close();
 
-		// Закрытие объекта класса StreamReader
-		readerRDB0->Close();
-		
+			//
+			//
+			//
+
+			String^ RBT2 = "2";
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ readerRDB1 = gcnew StreamReader(filePath);
+			// Считывание второй строки и ответа на вопрос 
+			for (int i = 1; i < 2; i++) {
+				readerRDB1->ReadLine();
+			}
+			// Считывание первой строки
+			String^ oneRDBLine = readerRDB1->ReadLine();
+			if (RBT2 == oneRDBLine)
+			{
+				CounterShef++;
+			}
+			// Закрытие объекта класса StreamReader
+			readerRDB1->Close();
+
+			//
+			//
+			//
+
+			String^ RBT3 = "3";
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ readerRDB2 = gcnew StreamReader(filePath);
+			// Считывание третьей строки и ответа на вопрос
+			for (int i = 1; i < 3; i++) {
+				readerRDB2->ReadLine();
+			}
+			// Считывание первой строки
+			String^ twoRDBLine = readerRDB2->ReadLine();
+			if (RBT3 == twoRDBLine)
+			{
+				CounterShef++;
+			}
+			// Закрытие объекта класса StreamReader
+			readerRDB2->Close();
+
+			//
+			//
+			//
+
+			String^ RBT4 = "4";
+			// Создание объекта класса StreamReader для чтения файла
+			StreamReader^ readerRDB3 = gcnew StreamReader(filePath);
+			// Считывание четвертой строки и ответа на вопрос
+			for (int i = 1; i < 4; i++) {
+				readerRDB3->ReadLine();
+			}
+			// Считывание первой строки
+			String^ threeRDBLine = readerRDB3->ReadLine();
+			if (RBT4 == threeRDBLine)
+			{
+				CounterShef++;
+			}
+			// Закрытие объекта класса StreamReader
+			readerRDB3->Close();
+		}
+		catch (const std::exception&)
+		{
+			MessageBox::Show("Сюда код доходит.", "Доход.", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
+
+	private: System::Void RDBotv1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	
 		   //2
 	private: System::Void RDBotv2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		
-		String^ RBT = "2";
-
-		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
-
-		// Создание объекта класса StreamReader для чтения файла
-		StreamReader^ readerRDB1 = gcnew StreamReader(filePath);
-
-		// Считывание первой строки и вопроса который в нем содержится
-		for (int i = 1; i < 2; i++) {
-			readerRDB1->ReadLine();
-		}
-
-		// Считывание первой строки
-		String^ oneRDBLine = readerRDB1->ReadLine();
-		if (RBT == oneRDBLine)
-		{
-			CounterShef++;
-		}
-
-		// Закрытие объекта класса StreamReader
-		readerRDB1->Close();
-		
 	}
 		   //3
 	private: System::Void RDBotv3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		String^ RBT = "3";
-
-		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
-
-		// Создание объекта класса StreamReader для чтения файла
-		StreamReader^ readerRDB2 = gcnew StreamReader(filePath);
-
-		// Считывание первой строки и вопроса который в нем содержится
-		for (int i = 1; i < 3; i++) {
-			readerRDB2->ReadLine();
-		}
-
-		// Считывание первой строки
-		String^ twoRDBLine = readerRDB2->ReadLine();
-		if (RBT == twoRDBLine)
-		{
-			CounterShef++;
-		}
-
-		// Закрытие объекта класса StreamReader
-		readerRDB2->Close();
-		
 	}
 		   //4
 	private: System::Void RDBotv4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		String^ RBT = "4";
-
-		String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
-
-		// Создание объекта класса StreamReader для чтения файла
-		StreamReader^ readerRDB0 = gcnew StreamReader(filePath);
-
-		// Считывание первой строки и вопроса который в нем содержится
-		for (int i = 1; i < 4; i++) {
-			readerRDB0->ReadLine();
-		}
-
-		// Считывание первой строки
-		String^ nullRDBLine = readerRDB0->ReadLine();
-		if (RBT == nullRDBLine)
-		{
-			CounterShef++;
-		}
-
-		// Закрытие объекта класса StreamReader
-		readerRDB0->Close();
-		
 	}
 #pragma endregion
 
@@ -580,10 +582,22 @@ namespace projectTest {
 		functoinClearForRDT();
 	}
 		   
+		   //
+		   //Предыдущий вопрос
+		   //
+
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		int value = 0;
-		funtionEnterElementForm(value);
-		functoinClearForRDT();
+
+		if (counterForNumberTest >= 2)
+		{
+			int value = 0;
+			funtionEnterElementForm(value);
+			functoinClearForRDT();
+		}
+		else
+		{
+			MessageBox::Show("Это самый первый вопрос.", "Внимание!", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
 		
 	}
 };
