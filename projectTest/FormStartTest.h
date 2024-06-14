@@ -24,7 +24,7 @@ namespace projectTest {
 	
 	static int counterForNumberTest = 0;
 	static int CounterShef = 0;
-	
+	static int counterShef = 0;
 	static int counterNumberRBT = 0;
 	
 	/// <summary>
@@ -416,6 +416,10 @@ namespace projectTest {
 				MessageBox::Show("Тест завершен, вы переноситесь к результатам.", "Итог", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				FormResultTestov^ startItog = gcnew FormResultTestov();
 				
+				/*StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result.txt", true);
+				fileTxt->WriteLine(CounterShef.ToString());
+				fileTxt->Close();*/
+
 				startItog->counterShef = CounterShef;
 				startItog->Owner = this;
 				startItog->Show();
@@ -477,6 +481,11 @@ namespace projectTest {
 			}
 			// Считывание первой строки
 			String^ nullRDBLine = readerRDB0->ReadLine();
+
+			StreamWriter^ fileTxt1 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result1.txt", true);
+				fileTxt1->WriteLine(CounterShef.ToString());
+				fileTxt1->Close();
+
 			if (RDB1 == nullRDBLine)
 			{
 				CounterShef++;
@@ -497,6 +506,11 @@ namespace projectTest {
 			}
 			// Считывание первой строки
 			String^ oneRDBLine = readerRDB1->ReadLine();
+
+			StreamWriter^ fileTxt2 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result2.txt", true);
+				fileTxt2->WriteLine(CounterShef.ToString());
+				fileTxt2->Close();
+
 			if (RBT2 == oneRDBLine)
 			{
 				CounterShef++;
@@ -517,6 +531,11 @@ namespace projectTest {
 			}
 			// Считывание первой строки
 			String^ twoRDBLine = readerRDB2->ReadLine();
+
+			StreamWriter^ fileTxt3 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result3.txt", true);
+				fileTxt3->WriteLine(CounterShef.ToString());
+				fileTxt3->Close();
+
 			if (RBT3 == twoRDBLine)
 			{
 				CounterShef++;
@@ -537,6 +556,11 @@ namespace projectTest {
 			}
 			// Считывание первой строки
 			String^ threeRDBLine = readerRDB3->ReadLine();
+
+			StreamWriter^ fileTxt4 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result4.txt", true);
+				fileTxt4->WriteLine(CounterShef.ToString());
+				fileTxt4->Close();
+
 			if (RBT4 == threeRDBLine)
 			{
 				CounterShef++;
@@ -546,7 +570,7 @@ namespace projectTest {
 		}
 		catch (const std::exception&)
 		{
-			MessageBox::Show("Сюда код доходит.", "Доход.", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			
 		}
 	}
 

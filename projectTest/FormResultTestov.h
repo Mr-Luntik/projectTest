@@ -111,6 +111,7 @@ namespace projectTest {
 
 
 	public: System::Void ItogZaTest_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 		ItogZaTest->Text = counterShef->ToString();
 	}
 };

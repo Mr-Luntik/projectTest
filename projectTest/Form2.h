@@ -16,6 +16,8 @@ namespace projectTest {
 	using namespace System::Drawing;
 	static int counter = 2;
 	static int RBT = 0;
+	static int counterForNumberTestForm2 = 0;
+	static bool proverkaNaVikluhenieRBT = false;
 	/// <summary>
 	/// Сводка для Form2
 	/// </summary>
@@ -299,22 +301,21 @@ namespace projectTest {
 
 		}
 #pragma endregion
-	
-private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		//
+
+
+public: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (RDBotvBox1->Checked || RDBotvBox2->Checked || RDBotvBox3->Checked || RDBotvBox4->Checked)
+	{
 		//Счетчик для создания новых файлов
-		//
-		static int counterForNumberTest = 0;
-		this->Text = counterForNumberTest.ToString();
-		counterForNumberTest++;
 
-		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt", true);
+		this->Text = counterForNumberTestForm2.ToString();
+		counterForNumberTestForm2++;
+
+		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTestForm2 + ".txt", true);
 		fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
 		fileTxt->Close();
 		MessageBox::Show(this, "Вопрос сохранен", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		
-		
 
 		//Чистка полей от старых данных для внесения новых
 		poleVoprosa->Clear();
@@ -322,14 +323,13 @@ private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArg
 		otvBox2->Clear();
 		otvBox3->Clear();
 		otvBox4->Clear();
-		
+
 		//
 		//Счетчик номеров тестов
 		//
-		
+
 		this->Text = "Вопрос №" + counter.ToString();
 		counter++;
-		
 
 		//
 		//Блок радио баттон
@@ -345,29 +345,37 @@ private: System::Void nextTestBTM_Click(System::Object^ sender, System::EventArg
 			sw->WriteLine("1" + "\n" + "0" + "\n" + "0" + "\n" + "0" + "\n");
 			sw->Close();
 			RDBotvBox1->Checked = false;
+			proverkaNaVikluhenieRBT = true;
 		}
-		
+
 		if (RDBotvBox2->Checked)
 		{
 			sw->WriteLine("0" + "\n" + "2" + "\n" + "0" + "\n" + "0" + "\n");
 			sw->Close();
 			RDBotvBox2->Checked = false;
+			proverkaNaVikluhenieRBT = true;
 		}
-		
+
 		if (RDBotvBox3->Checked)
 		{
 			sw->WriteLine("0" + "\n" + "0" + "\n" + "3" + "\n" + "0" + "\n");
 			sw->Close();
 			RDBotvBox3->Checked = false;
+			proverkaNaVikluhenieRBT = true;
 		}
-		
+
 		if (RDBotvBox4->Checked)
 		{
 			sw->WriteLine("0" + "\n" + "0" + "\n" + "0" + "\n" + "4" + "\n");
 			sw->Close();
 			RDBotvBox4->Checked = false;
+			proverkaNaVikluhenieRBT = true;
 		}
-		
+	}
+	else
+	{
+		MessageBox::Show(this, "У вас не выбран правильный варинт ответа", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
 	}
 
 private: System::Void poleVoprosa_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -404,55 +412,70 @@ private: System::Void RDBotvBox4_CheckedChanged(System::Object^ sender, System::
 	   //
 	   //Кнопка завершения теста
 	   //
-private: System::Void finishTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+public: System::Void finishTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (RDBotvBox1->Checked || RDBotvBox2->Checked || RDBotvBox3->Checked || RDBotvBox4->Checked)
+	{
+		RBT++;
+		counterForNumberTestForm2++;
+		//Завершение создания вопросов и закрытие формы
+		StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTestForm2 + ".txt", true);
+		fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
+		fileTxt->Close();
+		
+		MessageBox::Show(this, "Все вопросы сохранены!", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+
+		poleVoprosa->Clear();
+		otvBox1->Clear();
+		otvBox2->Clear();
+		otvBox3->Clear();
+		otvBox4->Clear();
+
+		this->Close();
+		//
+		//Блок радио баттом
+		//
+		fileTxt->Close();
+		String^ fileName = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + RBT + ".txt";
+		StreamWriter^ sw = File::AppendText(fileName);
+		if (RDBotvBox1->Checked)
+		{
+			sw->WriteLine("1" + "\n" + "0" + "\n" + "0" + "\n" + "0" + "\n");
+			sw->Close();
+			RDBotvBox1->Checked = false;
+			proverkaNaVikluhenieRBT = true;
+		}
+
+		if (RDBotvBox2->Checked)
+		{
+			sw->WriteLine("0" + "\n" + "2" + "\n" + "0" + "\n" + "0" + "\n");
+			sw->Close();
+			RDBotvBox2->Checked = false;
+			proverkaNaVikluhenieRBT = true;
+		}
+
+		if (RDBotvBox3->Checked)
+		{
+			sw->WriteLine("0" + "\n" + "0" + "\n" + "3" + "\n" + "0" + "\n");
+			sw->Close();
+			RDBotvBox3->Checked = false;
+			proverkaNaVikluhenieRBT = true;
+		}
+
+		if (RDBotvBox4->Checked)
+		{
+			sw->WriteLine("0" + "\n" + "0" + "\n" + "0" + "\n" + "4" + "\n");
+			sw->Close();
+			RDBotvBox4->Checked = false;
+			proverkaNaVikluhenieRBT = true;
+		}
+		sw->Close();
+	}
+	else
+	{
+		MessageBox::Show(this, "Для окончания создания теста, нужно выбрать правильный ответ", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
 	
-	//Завершение создания вопросов и закрытие формы
-	StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!", true);
-	fileTxt->WriteLine(poleVoprosa->Text + "\n" + otvBox1->Text + "\n" + otvBox2->Text + "\n" + otvBox3->Text + "\n" + otvBox4->Text + "\n");
-	fileTxt->Close();
-	MessageBox::Show(this, "Все вопросы сохранены!", "Сообщение", MessageBoxButtons::OK, MessageBoxIcon::Information);
-	this->Close();
-
-	poleVoprosa->Clear();
-	otvBox1->Clear();
-	otvBox2->Clear();
-	otvBox3->Clear();
-	otvBox4->Clear();
-	
-
-	//
-	//Блок радио баттом
-	//
-	fileTxt->Close();
-	String^ fileName = "C://Users//Msi//source//repos//projectTest//!!testO!!.txt";
-	StreamWriter^ sw = File::AppendText(fileName);
-	if (RDBotvBox1->Checked)
-	{
-		sw->WriteLine("1" + "\n" + "0" + "\n" + "0" + "\n" + "0" + "\n");
-		sw->Close();
-		RDBotvBox1->Checked = false;
-	}
-
-	if (RDBotvBox2->Checked)
-	{
-		sw->WriteLine("0" + "\n" + "2" + "\n" + "0" + "\n" + "0" + "\n");
-		sw->Close();
-		RDBotvBox2->Checked = false;
-	}
-
-	if (RDBotvBox3->Checked)
-	{
-		sw->WriteLine("0" + "\n" + "0" + "\n" + "3" + "\n" + "0" + "\n");
-		sw->Close();
-		RDBotvBox3->Checked = false;
-	}
-
-	if (RDBotvBox4->Checked)
-	{
-		sw->WriteLine("0" + "\n" + "0" + "\n" + "0" + "\n" + "4" + "\n");
-		sw->Close();
-		RDBotvBox4->Checked = false;
-	}
 }
 private: System::Void backTestBTM_Click(System::Object^ sender, System::EventArgs^ e) {
 }
