@@ -21,6 +21,7 @@ namespace projectTest {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
+	using namespace std;
 	
 	static int counterForNumberTest = 0;
 	static int CounterShef = 0;
@@ -324,128 +325,137 @@ namespace projectTest {
 			
 			String^ filePath = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!" + counterForNumberTest + ".txt";
 
+			string filename = "C://Users//Msi//source//repos//projectTest//VoprosiKtest//!!TEST!!1.txt";
+			if (FILE* file = fopen(filename.c_str(), "r"))
+			{
+				// Создание объекта класса StreamReader для чтения файла
+				try
+				{
+					StreamReader^ reader0 = gcnew StreamReader(filePath);
+					// Считывание первой строки и вопроса который в нем содержится
+					for (int i = 1; i < 1; i++) {
+						reader0->ReadLine();
+					}
+
+					// Считывание шестой строки
+					String^ nullLine = reader0->ReadLine();
+
+					// Закрытие объекта класса StreamReader
+					reader0->Close();
+
+					// Запись шестой строки в labelForVopr
+					labelForVopr->Text = nullLine;
+					labelForVopr->Invalidate();
+					//
+					//Считывание первого вопроса в поле для вопроса 1
+					//
+
+					// Создание объекта класса StreamReader для чтения файла
+					StreamReader^ reader1 = gcnew StreamReader(filePath);
+
+					// Считывание и пропуск пяти строк
+					for (int i = 1; i < 2; i++) {
+						reader1->ReadLine();
+					}
+
+					// Считывание шестой строки
+					String^ oneLine = reader1->ReadLine();
+
+					// Закрытие объекта класса StreamReader
+					reader1->Close();
+
+					// Запись шестой строки в labelForVopr
+					labelforOTV1->Text = oneLine;
+					labelforOTV1->Invalidate();
+
+					//
+					// Считывание второго вопроса в поле для вопроса 2
+					//
+
+					// Создание объекта класса StreamReader для чтения файла
+					StreamReader^ reader2 = gcnew StreamReader(filePath);
+
+					// Считывание и пропуск пяти строк
+					for (int i = 1; i < 3; i++) {
+						reader2->ReadLine();
+					}
+
+					// Считывание шестой строки
+					String^ twoLine = reader2->ReadLine();
+
+					// Закрытие объекта класса StreamReader
+					reader2->Close();
+
+					// Запись шестой строки в labelForVopr
+					labelforOTV2->Text = twoLine;
+					labelforOTV2->Invalidate();
+
+					//
+					// Считывание третьего вопроса в поле для вопроса 3
+					//
+
+					// Создание объекта класса StreamReader для чтения файла
+					StreamReader^ reader3 = gcnew StreamReader(filePath);
+
+					// Считывание и пропуск пяти строк
+					for (int i = 1; i < 4; i++) {
+						reader3->ReadLine();
+					}
+
+					// Считывание шестой строки
+					String^ threeLine = reader3->ReadLine();
+
+					// Закрытие объекта класса StreamReader
+					reader3->Close();
+
+					// Запись шестой строки в labelForVopr
+					labelforOTV3->Text = threeLine;
+					labelforOTV3->Invalidate();
+
+					//
+					// Считывание четвертого вопроса в поле для вопроса 4
+					//
+					 // Создание объекта класса StreamReader для чтения файла
+					StreamReader^ reader4 = gcnew StreamReader(filePath);
+
+					// Считывание и пропуск пяти строк
+					for (int i = 1; i < 5; i++) {
+						reader4->ReadLine();
+					}
+
+					// Считывание шестой строки
+					String^ fourLine = reader4->ReadLine();
+
+					// Закрытие объекта класса StreamReader
+					reader4->Close();
+
+					// Запись шестой строки в labelForVopr
+					labelforOTV4->Text = fourLine;
+					labelforOTV4->Invalidate();
+					polyaForRBT();
+
+				}
+				catch (System::IO::FileNotFoundException^ ex)
+				{
+					MessageBox::Show("Тест завершен, вы переноситесь к результатам.", "Итог", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					FormResultTestov^ startItog = gcnew FormResultTestov();
+
+					/*StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result.txt", true);
+					fileTxt->WriteLine(CounterShef.ToString());
+					fileTxt->Close();*/
+
+					startItog->counterShef = CounterShef;
+					startItog->Owner = this;
+					startItog->Show();
+					this->Hide();
+				}
+			}
+			else
+			{
+				MessageBox::Show("Файл для теста не найден", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				Environment::Exit(0);
+			}
 			
-			// Создание объекта класса StreamReader для чтения файла
-			try
-			{
-				StreamReader^ reader0 = gcnew StreamReader(filePath);
-				// Считывание первой строки и вопроса который в нем содержится
-				for (int i = 1; i < 1; i++) {
-					reader0->ReadLine();
-				}
-
-				// Считывание шестой строки
-				String^ nullLine = reader0->ReadLine();
-
-				// Закрытие объекта класса StreamReader
-				reader0->Close();
-
-				// Запись шестой строки в labelForVopr
-				labelForVopr->Text = nullLine;
-				labelForVopr->Invalidate();
-				//
-				//Считывание первого вопроса в поле для вопроса 1
-				//
-
-				// Создание объекта класса StreamReader для чтения файла
-				StreamReader^ reader1 = gcnew StreamReader(filePath);
-
-				// Считывание и пропуск пяти строк
-				for (int i = 1; i < 2; i++) {
-					reader1->ReadLine();
-				}
-
-				// Считывание шестой строки
-				String^ oneLine = reader1->ReadLine();
-
-				// Закрытие объекта класса StreamReader
-				reader1->Close();
-
-				// Запись шестой строки в labelForVopr
-				labelforOTV1->Text = oneLine;
-				labelforOTV1->Invalidate();
-
-				//
-				// Считывание второго вопроса в поле для вопроса 2
-				//
-
-				// Создание объекта класса StreamReader для чтения файла
-				StreamReader^ reader2 = gcnew StreamReader(filePath);
-
-				// Считывание и пропуск пяти строк
-				for (int i = 1; i < 3; i++) {
-					reader2->ReadLine();
-				}
-
-				// Считывание шестой строки
-				String^ twoLine = reader2->ReadLine();
-
-				// Закрытие объекта класса StreamReader
-				reader2->Close();
-
-				// Запись шестой строки в labelForVopr
-				labelforOTV2->Text = twoLine;
-				labelforOTV2->Invalidate();
-
-				//
-				// Считывание третьего вопроса в поле для вопроса 3
-				//
-
-				// Создание объекта класса StreamReader для чтения файла
-				StreamReader^ reader3 = gcnew StreamReader(filePath);
-
-				// Считывание и пропуск пяти строк
-				for (int i = 1; i < 4; i++) {
-					reader3->ReadLine();
-				}
-
-				// Считывание шестой строки
-				String^ threeLine = reader3->ReadLine();
-
-				// Закрытие объекта класса StreamReader
-				reader3->Close();
-
-				// Запись шестой строки в labelForVopr
-				labelforOTV3->Text = threeLine;
-				labelforOTV3->Invalidate();
-
-				//
-				// Считывание четвертого вопроса в поле для вопроса 4
-				//
-				 // Создание объекта класса StreamReader для чтения файла
-				StreamReader^ reader4 = gcnew StreamReader(filePath);
-
-				// Считывание и пропуск пяти строк
-				for (int i = 1; i < 5; i++) {
-					reader4->ReadLine();
-				}
-
-				// Считывание шестой строки
-				String^ fourLine = reader4->ReadLine();
-
-				// Закрытие объекта класса StreamReader
-				reader4->Close();
-
-				// Запись шестой строки в labelForVopr
-				labelforOTV4->Text = fourLine;
-				labelforOTV4->Invalidate();
-				polyaForRBT();
-
-			}
-			catch (System::IO::FileNotFoundException^ ex)
-			{
-				MessageBox::Show("Тест завершен, вы переноситесь к результатам.", "Итог", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				FormResultTestov^ startItog = gcnew FormResultTestov();
-				
-				/*StreamWriter^ fileTxt = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result.txt", true);
-				fileTxt->WriteLine(CounterShef.ToString());
-				fileTxt->Close();*/
-
-				startItog->counterShef = CounterShef;
-				startItog->Owner = this;
-				startItog->Show();
-				this->Hide();
-			}
 			
 		}
 #pragma endregion
