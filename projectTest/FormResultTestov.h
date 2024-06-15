@@ -40,6 +40,7 @@ namespace projectTest {
 		}
 	private: System::Windows::Forms::Label^ ItogZaTest;
 	private: System::Windows::Forms::Button^ Exit;
+	private: System::Windows::Forms::Button^ button1;
 
 
 	protected:
@@ -62,6 +63,7 @@ namespace projectTest {
 		{
 			this->ItogZaTest = (gcnew System::Windows::Forms::Label());
 			this->Exit = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// ItogZaTest
@@ -72,7 +74,7 @@ namespace projectTest {
 			this->ItogZaTest->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->ItogZaTest->Font = (gcnew System::Drawing::Font(L"Times New Roman", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->ItogZaTest->Location = System::Drawing::Point(13, 13);
+			this->ItogZaTest->Location = System::Drawing::Point(13, 35);
 			this->ItogZaTest->Name = L"ItogZaTest";
 			this->ItogZaTest->Size = System::Drawing::Size(391, 154);
 			this->ItogZaTest->TabIndex = 0;
@@ -91,6 +93,21 @@ namespace projectTest {
 			this->Exit->TabIndex = 1;
 			this->Exit->Text = L"Завершить тест";
 			this->Exit->UseVisualStyleBackColor = false;
+			this->Exit->Click += gcnew System::EventHandler(this, &FormResultTestov::Exit_Click);
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button1->ForeColor = System::Drawing::Color::Red;
+			this->button1->Location = System::Drawing::Point(326, 2);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(78, 30);
+			this->button1->TabIndex = 2;
+			this->button1->Text = L"X";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &FormResultTestov::button1_Click);
 			// 
 			// FormResultTestov
 			// 
@@ -98,9 +115,10 @@ namespace projectTest {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Thistle;
 			this->ClientSize = System::Drawing::Size(416, 423);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->Exit);
 			this->Controls->Add(this->ItogZaTest);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"FormResultTestov";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Результат за тест";
@@ -114,5 +132,11 @@ namespace projectTest {
 		
 		ItogZaTest->Text = counterShef->ToString();
 	}
+private: System::Void Exit_Click(System::Object^ sender, System::EventArgs^ e) {
+	Environment::Exit(0);
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	Environment::Exit(0);
+}
 };
 }

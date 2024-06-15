@@ -76,7 +76,9 @@ namespace projectTest {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2BackVopros;
 
-	private: System::Windows::Forms::Button^ button3;
+
+	private: System::Windows::Forms::Button^ exitButtomX;
+	private: System::Windows::Forms::Label^ label1;
 
 	protected:
 
@@ -106,18 +108,20 @@ namespace projectTest {
 			this->RDBotv4 = (gcnew System::Windows::Forms::RadioButton());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2BackVopros = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->exitButtomX = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// labelForVopr
 			// 
 			this->labelForVopr->BackColor = System::Drawing::Color::Bisque;
 			this->labelForVopr->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->labelForVopr->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelForVopr->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelForVopr->Location = System::Drawing::Point(13, 13);
+			this->labelForVopr->ForeColor = System::Drawing::Color::Black;
+			this->labelForVopr->Location = System::Drawing::Point(13, 35);
 			this->labelForVopr->Name = L"labelForVopr";
-			this->labelForVopr->Size = System::Drawing::Size(391, 77);
+			this->labelForVopr->Size = System::Drawing::Size(680, 89);
 			this->labelForVopr->TabIndex = 0;
 			this->labelForVopr->Click += gcnew System::EventHandler(this, &FormStartTest::labelForVopr_Click);
 			// 
@@ -125,11 +129,12 @@ namespace projectTest {
 			// 
 			this->labelforOTV1->BackColor = System::Drawing::Color::MistyRose;
 			this->labelforOTV1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->labelforOTV1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelforOTV1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelforOTV1->Location = System::Drawing::Point(36, 106);
+			this->labelforOTV1->ForeColor = System::Drawing::Color::Black;
+			this->labelforOTV1->Location = System::Drawing::Point(44, 139);
 			this->labelforOTV1->Name = L"labelforOTV1";
-			this->labelforOTV1->Size = System::Drawing::Size(368, 59);
+			this->labelforOTV1->Size = System::Drawing::Size(650, 80);
 			this->labelforOTV1->TabIndex = 1;
 			this->labelforOTV1->Click += gcnew System::EventHandler(this, &FormStartTest::labelforOTV1_Click);
 			// 
@@ -137,11 +142,12 @@ namespace projectTest {
 			// 
 			this->labelforOTV2->BackColor = System::Drawing::Color::MistyRose;
 			this->labelforOTV2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->labelforOTV2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelforOTV2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelforOTV2->Location = System::Drawing::Point(36, 174);
+			this->labelforOTV2->ForeColor = System::Drawing::Color::Black;
+			this->labelforOTV2->Location = System::Drawing::Point(44, 227);
 			this->labelforOTV2->Name = L"labelforOTV2";
-			this->labelforOTV2->Size = System::Drawing::Size(368, 59);
+			this->labelforOTV2->Size = System::Drawing::Size(650, 80);
 			this->labelforOTV2->TabIndex = 2;
 			this->labelforOTV2->Click += gcnew System::EventHandler(this, &FormStartTest::labelforOTV2_Click);
 			// 
@@ -149,11 +155,12 @@ namespace projectTest {
 			// 
 			this->labelforOTV3->BackColor = System::Drawing::Color::MistyRose;
 			this->labelforOTV3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->labelforOTV3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelforOTV3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelforOTV3->Location = System::Drawing::Point(36, 242);
+			this->labelforOTV3->ForeColor = System::Drawing::Color::Black;
+			this->labelforOTV3->Location = System::Drawing::Point(44, 315);
 			this->labelforOTV3->Name = L"labelforOTV3";
-			this->labelforOTV3->Size = System::Drawing::Size(368, 59);
+			this->labelforOTV3->Size = System::Drawing::Size(650, 80);
 			this->labelforOTV3->TabIndex = 3;
 			this->labelforOTV3->Click += gcnew System::EventHandler(this, &FormStartTest::labelforOTV3_Click);
 			// 
@@ -161,18 +168,19 @@ namespace projectTest {
 			// 
 			this->labelforOTV4->BackColor = System::Drawing::Color::MistyRose;
 			this->labelforOTV4->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->labelforOTV4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelforOTV4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelforOTV4->Location = System::Drawing::Point(36, 310);
+			this->labelforOTV4->ForeColor = System::Drawing::Color::Black;
+			this->labelforOTV4->Location = System::Drawing::Point(44, 403);
 			this->labelforOTV4->Name = L"labelforOTV4";
-			this->labelforOTV4->Size = System::Drawing::Size(368, 57);
+			this->labelforOTV4->Size = System::Drawing::Size(650, 80);
 			this->labelforOTV4->TabIndex = 4;
 			this->labelforOTV4->Click += gcnew System::EventHandler(this, &FormStartTest::labelforOTV4_Click);
 			// 
 			// RDBotv1
 			// 
 			this->RDBotv1->AutoSize = true;
-			this->RDBotv1->Location = System::Drawing::Point(13, 126);
+			this->RDBotv1->Location = System::Drawing::Point(12, 164);
 			this->RDBotv1->Name = L"RDBotv1";
 			this->RDBotv1->Size = System::Drawing::Size(17, 16);
 			this->RDBotv1->TabIndex = 5;
@@ -182,7 +190,7 @@ namespace projectTest {
 			// RDBotv2
 			// 
 			this->RDBotv2->AutoSize = true;
-			this->RDBotv2->Location = System::Drawing::Point(13, 194);
+			this->RDBotv2->Location = System::Drawing::Point(12, 248);
 			this->RDBotv2->Name = L"RDBotv2";
 			this->RDBotv2->Size = System::Drawing::Size(17, 16);
 			this->RDBotv2->TabIndex = 6;
@@ -192,7 +200,7 @@ namespace projectTest {
 			// RDBotv3
 			// 
 			this->RDBotv3->AutoSize = true;
-			this->RDBotv3->Location = System::Drawing::Point(13, 261);
+			this->RDBotv3->Location = System::Drawing::Point(13, 333);
 			this->RDBotv3->Name = L"RDBotv3";
 			this->RDBotv3->Size = System::Drawing::Size(17, 16);
 			this->RDBotv3->TabIndex = 7;
@@ -202,7 +210,7 @@ namespace projectTest {
 			// RDBotv4
 			// 
 			this->RDBotv4->AutoSize = true;
-			this->RDBotv4->Location = System::Drawing::Point(13, 327);
+			this->RDBotv4->Location = System::Drawing::Point(13, 419);
 			this->RDBotv4->Name = L"RDBotv4";
 			this->RDBotv4->Size = System::Drawing::Size(17, 16);
 			this->RDBotv4->TabIndex = 8;
@@ -212,12 +220,12 @@ namespace projectTest {
 			// button1
 			// 
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->ForeColor = System::Drawing::Color::Black;
-			this->button1->Location = System::Drawing::Point(284, 378);
+			this->button1->Location = System::Drawing::Point(450, 499);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(120, 40);
+			this->button1->Size = System::Drawing::Size(244, 66);
 			this->button1->TabIndex = 9;
 			this->button1->Text = L"Следующий вопрос";
 			this->button1->UseVisualStyleBackColor = true;
@@ -226,29 +234,40 @@ namespace projectTest {
 			// button2BackVopros
 			// 
 			this->button2BackVopros->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->button2BackVopros->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2BackVopros->Font = (gcnew System::Drawing::Font(L"Times New Roman", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2BackVopros->ForeColor = System::Drawing::Color::Black;
-			this->button2BackVopros->Location = System::Drawing::Point(3, 378);
+			this->button2BackVopros->Location = System::Drawing::Point(44, 499);
 			this->button2BackVopros->Name = L"button2BackVopros";
-			this->button2BackVopros->Size = System::Drawing::Size(120, 40);
+			this->button2BackVopros->Size = System::Drawing::Size(244, 66);
 			this->button2BackVopros->TabIndex = 10;
 			this->button2BackVopros->Text = L"Предыдущий вопрос";
 			this->button2BackVopros->UseVisualStyleBackColor = true;
 			this->button2BackVopros->Click += gcnew System::EventHandler(this, &FormStartTest::button2_Click);
 			// 
-			// button3
+			// exitButtomX
 			// 
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->exitButtomX->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->exitButtomX->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->ForeColor = System::Drawing::Color::Black;
-			this->button3->Location = System::Drawing::Point(145, 378);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(120, 40);
-			this->button3->TabIndex = 11;
-			this->button3->Text = L"Завершить тест";
-			this->button3->UseVisualStyleBackColor = true;
+			this->exitButtomX->ForeColor = System::Drawing::Color::Red;
+			this->exitButtomX->Location = System::Drawing::Point(616, 2);
+			this->exitButtomX->Name = L"exitButtomX";
+			this->exitButtomX->Size = System::Drawing::Size(78, 30);
+			this->exitButtomX->TabIndex = 12;
+			this->exitButtomX->Text = L"X";
+			this->exitButtomX->UseVisualStyleBackColor = false;
+			this->exitButtomX->Click += gcnew System::EventHandler(this, &FormStartTest::exitButtomX_Click);
+			// 
+			// label1
+			// 
+			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(12, 6);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(204, 23);
+			this->label1->TabIndex = 13;
+			this->label1->Text = L"Прохождение теста";
 			// 
 			// FormStartTest
 			// 
@@ -256,8 +275,9 @@ namespace projectTest {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::EnablePreventFocusChange;
 			this->BackColor = System::Drawing::Color::Thistle;
-			this->ClientSize = System::Drawing::Size(419, 423);
-			this->Controls->Add(this->button3);
+			this->ClientSize = System::Drawing::Size(710, 573);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->exitButtomX);
 			this->Controls->Add(this->button2BackVopros);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->RDBotv4);
@@ -269,10 +289,11 @@ namespace projectTest {
 			this->Controls->Add(this->labelforOTV2);
 			this->Controls->Add(this->labelforOTV1);
 			this->Controls->Add(this->labelForVopr);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"FormStartTest";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Прохождение теста";
+			this->Load += gcnew System::EventHandler(this, &FormStartTest::FormStartTest_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -624,5 +645,10 @@ namespace projectTest {
 		}
 		
 	}
+private: System::Void exitButtomX_Click(System::Object^ sender, System::EventArgs^ e) {
+	Environment::Exit(0);
+}
+private: System::Void FormStartTest_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
