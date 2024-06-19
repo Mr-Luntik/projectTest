@@ -25,8 +25,8 @@ namespace projectTest {
 	
 	static int counterForNumberTest = 0;
 	static int CounterShef = 0;
-	static int counterShef = 0;
 	static int counterNumberRBT = 0;
+	/*static int RDB1 = 1, RDB1 = 2, RDB3 = 3, RDB4 = 4;*/
 	
 	/// <summary>
 	/// Сводка для FormStartTest
@@ -432,7 +432,7 @@ namespace projectTest {
 					// Запись шестой строки в labelForVopr
 					labelforOTV4->Text = fourLine;
 					labelforOTV4->Invalidate();
-					polyaForRBT();
+					
 
 				}
 				catch (System::IO::FileNotFoundException^ ex)
@@ -498,106 +498,36 @@ namespace projectTest {
 		   //1
 		   
 #pragma region Блок Кнопок выбора ответа RDB
-	public: void polyaForRBT()
+	public: void polyaForRBT(int trueOtv)
 	{
 		try
 		{
-			String^ RDB1 = "1";
-			String^ filePath = "C://Users//Msi//source//repos//projectTest//otvKtest//test" + counterForNumberTest + ".txt";
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ readerRDB0 = gcnew StreamReader(filePath);
-			// Считывание первой строки и ответа на вопрос
-			for (int i = 1; i < 1; i++) {
-				readerRDB0->ReadLine();
-			}
-			// Считывание первой строки
-			String^ nullRDBLine = readerRDB0->ReadLine();
-
-			StreamWriter^ fileTxt1 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result1.txt", true);
-				fileTxt1->WriteLine(CounterShef.ToString());
-				fileTxt1->Close();
-
-			if (RDB1 == nullRDBLine)
+			int Otv = trueOtv;
+			String^ path = "C:/Users/Msi/source/repos/projectTest/otvKtest/test" + counterForNumberTest + ".txt";
+			fstream fin;
+			string stdPAth = msclr::interop::marshal_as<std::string>(path);
+			fin.open(stdPAth);
+			if (!fin.is_open())
 			{
-				CounterShef++;
+				
 			}
-			// Закрытие объекта класса StreamReader
-			readerRDB0->Close();
-
-			//
-			//
-			//
-
-			String^ RBT2 = "2";
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ readerRDB1 = gcnew StreamReader(filePath);
-			// Считывание второй строки и ответа на вопрос 
-			for (int i = 1; i < 2; i++) {
-				readerRDB1->ReadLine();
-			}
-			// Считывание первой строки
-			String^ oneRDBLine = readerRDB1->ReadLine();
-
-			StreamWriter^ fileTxt2 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result2.txt", true);
-				fileTxt2->WriteLine(CounterShef.ToString());
-				fileTxt2->Close();
-
-			if (RBT2 == oneRDBLine)
+			else
 			{
-				CounterShef++;
+				
+				int integer;
+				while (!fin.eof())
+				{
+					fin >> integer;
+					if (integer == Otv)
+					{
+						CounterShef++;
+					}
+					else
+					{
+						break;
+					}
+				}
 			}
-			// Закрытие объекта класса StreamReader
-			readerRDB1->Close();
-
-			//
-			//
-			//
-
-			String^ RBT3 = "3";
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ readerRDB2 = gcnew StreamReader(filePath);
-			// Считывание третьей строки и ответа на вопрос
-			for (int i = 1; i < 3; i++) {
-				readerRDB2->ReadLine();
-			}
-			// Считывание первой строки
-			String^ twoRDBLine = readerRDB2->ReadLine();
-
-			StreamWriter^ fileTxt3 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result3.txt", true);
-				fileTxt3->WriteLine(CounterShef.ToString());
-				fileTxt3->Close();
-
-			if (RBT3 == twoRDBLine)
-			{
-				CounterShef++;
-			}
-			// Закрытие объекта класса StreamReader
-			readerRDB2->Close();
-
-			//
-			//
-			//
-
-			String^ RBT4 = "4";
-			// Создание объекта класса StreamReader для чтения файла
-			StreamReader^ readerRDB3 = gcnew StreamReader(filePath);
-			// Считывание четвертой строки и ответа на вопрос
-			for (int i = 1; i < 4; i++) {
-				readerRDB3->ReadLine();
-			}
-			// Считывание первой строки
-			String^ threeRDBLine = readerRDB3->ReadLine();
-
-			StreamWriter^ fileTxt4 = gcnew StreamWriter("C://Users//Msi//source//repos//projectTest//Result//Result4.txt", true);
-				fileTxt4->WriteLine(CounterShef.ToString());
-				fileTxt4->Close();
-
-			if (RBT4 == threeRDBLine)
-			{
-				CounterShef++;
-			}
-			// Закрытие объекта класса StreamReader
-			readerRDB3->Close();
 		}
 		catch (const std::exception&)
 		{
@@ -606,16 +536,24 @@ namespace projectTest {
 	}
 
 	private: System::Void RDBotv1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		int trueOtv1 = 1;
+		polyaForRBT(trueOtv1);
 	}
 	
 		   //2
 	private: System::Void RDBotv2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		int trueOtv2 = 2;
+		polyaForRBT(trueOtv2);
 	}
 		   //3
 	private: System::Void RDBotv3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		int trueOtv3 = 3;
+		polyaForRBT(trueOtv3);
 	}
 		   //4
 	private: System::Void RDBotv4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		int trueOtv4 = 4;
+		polyaForRBT(trueOtv4);
 	}
 #pragma endregion
 
